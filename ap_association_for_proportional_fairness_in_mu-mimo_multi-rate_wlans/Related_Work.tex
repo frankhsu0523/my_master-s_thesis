@@ -1,0 +1,29 @@
+% Related Work
+\section{Related Work}
+	We survey on the proportional fairness ,AP association problems, and MIMO.
+	
+	In \cite{kelly1997charging}, the motivation is to find how to set a price for the unit rate allocated to each USER in a SYSTEM consist of USERs and NETWORK such that for each USER, the utility function minus pay for allocated rate is maximum and the revenue of NETWORK is maximum. The famous contribution in this paper is the author proposes a proportional fairness criterion applied to the rate allocation and derive a utility function such that when the maximum of the sum of the utility function is attained, the rate allocation is in the proportional fairness condition.
+	
+	In \cite{li2008proportional}, the authors introduce a NP-hard problem called AP association for proportional fairness in multi-rate WLANs and propose two approximation algorithms. In simulations, they compare their results to another allocation for max-min fairness. The aggregate throughput of their algorithms is as much as 2.3 times more than that of the max-min fair allocation. The model in this paper is a kind of an integer model application in \cite{kelly1997charging}. The algorithm in this paper cannot be used for our problem AAPFM because we need to decide which user is assigned to which antennas on the AP with multiple antennas.
+
+	In \cite{li2014ap}, the authors introduce the same problem as that in \cite{li2008proportional} and propose an approximation algorithm for AP association and a distributed heuristic algorithm to provide an AP selection criterion for newcomers.
+	
+	In \cite{baid2012network}, the authors consider a scenario as follows. There are several WLANs belong to different owners in an area. Each WLAN is composed of APs. The owner of a WLAN will set  different channel to each AP in this WLAN. However, APs in different WLANs may be set the same channel. If a user is covered by these APs, he may get interference. The authors propose an algorithm to cooperate APs in different WLANs in order to associate each user to only one AP in one WLAN and allocate the bandwidth to each user such that the bandwidth allocation is under proportional fairness. This paper seems like an extension of \cite{li2008proportional}.
+	
+	In \cite{karimi2014optimal}, the motivation is that because the number of channels is less than the number of APs in a WLAN, there will be multiple APs to be set the same channel when APs are deployed densely. APs using the same channel will interfere to each other, so they cannot transmit to users simultaneous when we perform time scheduling. Besides, if a user can associate with multiple APs, it may obtain more bandwidth. The authors propose an algorithm to select one channel to set for each AP, associate each user to one or multiple APs, and allocate bandwidth to each user such that bandwidth allocation is under proportional fairness.
+
+	In \cite{gong2012ap}, the authors consider AP association problem in IEEE 802.11 WLANs. In the WLAN, clients associate with an AP with strongest signal strength automatically. However, it may lead to poor bandwidth allocation. Moreover, clients with different generations of IEEE 802.11 standard may be in the WLAN simultaneously. It will result in the upper bound of the data rate of each client may be different. The authors propose two AP association algorithms such that the bandwidth allocated to each client is proportional to the upper bound of the data rate of each client.
+
+	In \cite{yoon2013probeam}, the authors propose an algorithm for joint client association and beam selection problem whose goal is to maximize the sum of the utility function of the allocated bandwidth by reusing the potential of beamforming in small-cell networks.
+	
+	In \cite{li2002mimo}, the authors establish an orthogonal frequency division multiplexing (OFDM) for MIMO channels (MIMO-OFDM) system to mitigate intersymbol interference and increase the transmission data rate.
+	
+	In \cite{aryafar2010design}, the authors design a practical multi-user beamforming system in WLANs and evaluate the performance of Zero Forcing Beamforming (ZFBF) algorithm \cite{yoo2006optimality}.
+
+	In \cite{yoo2007multi}, the authors design a limited channel state information (CSI) feedback mechanism to mitigate the overhead of feedback by reducing the number of feedback bits.
+	
+	In \cite{xie2014scalable}, the authors proposed a distributed mechanism for selecting users to be served by an AP in MU-MIMO networks. An AP with $M$ antenna can transmit data to $M$ users at most in the downlink during each transmission interval. In order to reduce the overhead of CSI feedback but still keep the accuracy of CSI enough and maximize the total capacity of the AP, there are $M$ rounds in a transmission interval and in each round the mechanism selects one user that can increase the capacity to maximal.	
+		
+
+%	\cite{arslan2007channel}\cite{blough2014interference}\cite{du2014ibeam}\cite{gong2012ap}\cite{kelly1997charging}\cite{li2002mimo}\cite{li2008proportional}\cite{li2014ap}\cite{wang2014simcast}\cite{xie2014scalable}\cite{yoo2007multi}\cite{yu2014combating}\cite{yoon2013probeam}\cite{aryafar2010design}\cite{yoo2006optimality}
+	

@@ -1,0 +1,43 @@
+\section{Introduction}
+	Wireless local area networks (WLANs) are widely used today. There are more and more users in WLANs because mobile devices (e.g., smartphones, tablets, etc.) become very popular in recent years. Users can connect to networks by associating their devices with access points (APs) pairwisely to upload and download data.
+	
+	In a WLAN, there is at least one AP to be deployed. On each AP, there are multiple channels to be set. The controller of each AP can select one among multiple channels to set it on the AP to communicate with users.
+	
+	We refer to a WLAN with the various bit rate as a multi-rate WLAN. The bit rate of each transmission link between the AP and the user may be different because the rate can be decided by Shannon-Hartley theorem according to the bandwidth of the channel and the signal-to-noise ratio (SNR). SNR is a function of the transmit power of the antenna on the AP, the distance between the AP and the user, and the noise in the environment. Therefore, when a user associates with different APs, the bit rate obtained by the user may be different. 
+	
+	Multiple-input multiple-output (MIMO) is a method to improve the bit rate between the AP and the user by using the multiple spatial streams to transmit data on the same channel at the same time \cite{li2002mimo}. Twenty years ago, each AP or user almost has only one antenna to transmit or receive data. The controller of APs can only control the transmit power to adjust the bit rate of links between the AP and users. Next, someone finds out that if there are multiple antennas on APs and users, the AP can simultaneously transmit multiple spatial streams to a user on the same channel at the same time. It improves the sum-rate between the AP and the user. This method is called multiple-input multiple-output (MIMO).
+	
+	Multi-user MIMO allows an AP to transmit data to multiple users simultaneously on the same channel by using the method called beamforming. When an AP has multiple antennas, it can control the direction of the transmit signal by tunning the magnitude and the phase of the transmit signal at each antenna on the AP. Therefore, the AP can select one user and transmit data to it without interfering other users. This method not only increases the power gain but also decreases the interference to other users. We call this method beamforming.
+	Because we can use beamforming to control the propagation direction of the transmit signal, we can make the directions of multiple transmit signals different such that they don't collide to each other. Then an AP with multiple antennas can transmit different signals to multiple users simultaneously. We call this environment  multi-user MIMO (MU-MIMO).
+	
+	The different decision of the AP association in enterprise WLANs will lead to the different result of the bandwidth allocation. The bandwidth here can be referred to as the average throughput during a time period. In order to allocate bandwidth to each user as much as possible, plenty of APs which belong to the same owner are deployed over a large population area like a campus, an enterprise, etc. This architecture is called an enterprise WLAN. There usually exist a central controller to manage all APs' setting in an enterprise WLAN. If the controller can make a good decision for AP association, it may be able to improve the bandwidth allocated to each user.
+	
+	Fairness should be considered in the AP association problem in addition to improving the bandwidth. Today there are two famous fairness type in the world. One is the max-min fairness, and the other is proportional fairness \cite{kelly1997charging}. In max-min fairness, the fairness criterion is that when we can't increase someone's allocated bandwidth if it results in decreasing another one's smaller allocated bandwidth, it is fair. In proportional fairness, when the allocated bandwidth $\{b_1^*,...,b_m^*\}$ is fair, for any other allocated bandwidth $ \{b_1,...,b_m\}$ will lead to $ \sum_{i=1}^{n} \frac{b_1-b_1^*}{b_1^*} \le 0 $. We maximize the allocated bandwidth of each user under the fairness constraint. According to references \cite{li2008proportional}, total allocated bandwidth of all users under the proportional fairness criterion is greater than that under the max-min fairness criterion.
+	
+	Therefore, we consider a problem about how to make an AP association for proportional fairness when there are multiple APs deployed in a multi-rate enterprise WLAN which supports MU-MIMO. If there are multiple antennas on each AP and on each user, then each user can receive from multiple antennas on the same AP at the same time. When we schedule the transmission time for the antenna on the AP, each time slot of the antenna can be assigned to only one user. So, if an AP is equipped with multiple antennas, the AP can be assigned to multiple users at the same time with different time slots of antennas. When each user is in the coverage areas of several APs, the user has many choices to select one AP among them to associate with. Therefore, we propose an algorithm for AP association for proportional fairness in an MU-MIMO multi-rate WLAN. 
+	
+	%Because the channel state information will vary and a new user would like to make an association or an old user would like to leave, we will perform the AP association algorithm periodically.
+	
+	For convenience, the notations in the thesis are summarized in Table \ref{Tab:notation}.
+	
+	\begin{table} \small
+		\centering \caption{Notations in the thesis.}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|l|l|} % m{5.38cm}
+			\hline	Symbol & Semantics \\
+			\hline	$U$ & The set of users. \\
+			\hline	$T$ & The set of antennas. \\
+			\hline	$A$ & The set of APs. \\
+			\hline	$T_i$ & The set of antennas on AP $i$. \\
+			\hline	$U_i$ & The set of users associating with AP $i$. \\
+			%	\hline	\(\omega_j\) & The priority of user \(j\). \\
+			\hline	$b_j$ & The bandwidth allocated to user $j$. \\
+			\hline	$r_{ikj}$ & The bit rate of the link between antenna $k$ on AP $i$ and user $j$. \\
+			\hline	$r_{ij}$ & The bit rate of the link between antenna $i$ and user $j$. \\
+			\hline	$t_{ikj}$ & The fractional time that user $j$ can receive from antenna $k$ on AP $i$. \\
+			\hline	$p_{kj}$ & The fractional time that user $j$ can receive from antenna $k$ on the AP. \\
+			\hline	$x_{ij}$ & User $j$ is associated to AP $i$ or not. \\
+			\hline	$c_{j}$ & The number of antennas on user $j$. \\
+			\hline
+		\end{tabular}\label{Tab:notation}
+	\end{table}

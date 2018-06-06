@@ -1,0 +1,201 @@
+% AP Association
+\section{Problem and Algorithm}
+	In a WLAN with multiple APs, each user needs to decide which AP he would like to associate with before starting to transmit or receive data. In other words, we perform AP association before we perform bandwidth allocation. Therefore, we consider an AP association problem that we assign each user to an AP and perform bandwidth allocation such that the allocated bandwidth to each user is under proportional fairness. 
+	
+	In this AP association problem AAPFM, there are $m$ APs and $n$ users in a network supporting MU-MIMO. On each AP $i$ and user $j$, there are $l_i$ and $c_j$ antennas respectively. We assume all neighbor APs of each AP $i$ are set on the different channel, so they have no inter-interference. During each unit time, each user can associate with exact one AP. After user $j$ has associated with AP $i$, AP $i$ can communicate to user $j$ with at most $c_j$ antennas simultaneously by using beamforming in the downlink. We would like to allocate the bandwidth to each user under proportional fairness. In other words, we maximize the sum of the utility function of each user's allocated bandwidth. After solving the optimization problem, we obtain the receiving time corresponding to the antenna on the AP and the user. Then we schedule the receiving time of each user to corresponding antennas on the associated AP. 
+	
+	Our problem AAPFM can be formulated as follows:
+
+	\begin{equation}
+		\begin{aligned}
+			& \text{maximize} 
+			& & \sum_{j \in U} \log (b_{j}) \\
+			& \text{subject to} 
+			& & b_{j} = \sum_{i \in A} x_{ij} \sum_{k \in T_{i}} r_{ikj} t_{ikj}, & & \forall j \in U, \\
+			& & & \sum_{i \in A} x_{ij} = 1, & & \forall j \in U, \\
+			& & & \sum_{i \in A} x_{ij} \sum_{k \in T_i } t_{ikj} \le c_j, & & \forall j \in U, \\
+			& & & \sum_{j\in U} t_{ikj} \le 1, & & \forall i \in A, k \in T_i,  \\
+			& & & 0 \le t_{ikj} \le 1, & & \forall i \in A, k \in T_i, j \in U, \\
+			& & & x_{ij} = \{0, 1\}, & & \forall i \in A, j \in U. \\
+		\end{aligned}
+	\end{equation}
+
+	In this non-linear program, $x_{ij}$ denotes whether user $j$ associates with AP $i$ or not. The first constraint shows the bandwidth allocated to user $j$ equals to the sum of the bit rate of the link between the antenna on the associated AP $i$ and user $j$ multiplying the receiving time solved by our algorithm. The second constraint specifies each user $j$ should associate with exact one AP. The third constraint specifies the total receiving time of user $j$ is no more than the number of antennas on user $j$. The forth constraint means the total transmission time of antenna $k$ on AP $i$ is no more than the unit time. So, the transmission time from antenna $k$ on AP $i$ to user $j$ is also no more than the unit time and not less than zero.
+	
+	Then, we relax the program by letting $0 \le x_{ij} \le 1$, $p_{ikj} = x_{ij} t_{ikj}$, $p_{ikj} \ge 0$, and $\sum_{j \in U} p_{ikj} \le 1$. The non-linear program relaxation as follows:
+	
+	\begin{equation} \label{eq:cvxpr}
+		\begin{aligned}
+			& \text{maximize} 
+			& & \sum_{j \in U} \log (b_{j}) \\
+			& \text{subject to} 
+			& & b_{j} = \sum_{i \in A} \sum_{k \in T_{i}} r_{ikj} p_{ikj}, & & \forall j \in U, \\
+			& & & \sum_{i \in A} \sum_{k \in T_i } p_{ikj} \le c_j, & & \forall j \in U, \\
+			& & & \sum_{j\in U} p_{ikj} \le 1, & & \forall i \in A, k \in T_i,  \\
+			& & & p_{ikj} \ge 0, & & \forall i \in A, k \in T_i, j \in U. \\
+		\end{aligned}
+	\end{equation}
+
+	This program is a convex program and we can use interior-point method to solve it in polynomial time \cite{boyd2004convex}. Thus, we obtain $p_{ikj}^{*}$. We know $b_j^* = \sum_{i \in A} \sum_{k \in T_{i}} r_{ikj} p_{ikj}^* = \sum_{i \in A} b_{ij}^*, \forall j \in U$. So we can obtain $b_{ij}^* = \sum_{k \in T_{i}} r_{ikj} p_{ikj}^*, \forall i \in A, j \in U$. For each user $j$, in order to decide which $x_{ij}$ to be $1$, we choose the AP $i$ whose $b_{ij}$ is maximum and set $x_{ij} = 1$. Otherwise, $x_{ij} = 0$. The algorithm is shown in Algorithm 1.
+	
+	After we decide each user associate with which AP, for each AP, we perform the bandwidth allocation algorithm (Algorithm 2) to obtain the receiving time of each user.
+	
+%	Finally, we can obtain the value of the sum of the utility function.
+	
+	\begin{equation} \label{eq:cvxp}
+		\begin{aligned}
+			& \text{maximize} 
+			& & \sum_{j \in U_i} \log (b_{j}) \\
+			& \text{subject to} 
+			& & b_{j} = \sum_{k \in T_{i}} r_{ikj} t_{ikj}, & & \forall j \in U_i, \\
+			& & & \sum_{k \in T_i } t_{ikj} \le c_j, & & \forall j \in U_i, \\
+			& & & \sum_{j\in U} t_{ikj} \le 1, & & \forall k \in T_i,  \\
+			& & & t_{ikj} \ge 0, & & \forall k \in T_i, j \in U_i. \\
+		\end{aligned}
+	\end{equation}
+	
+	 Then, we perform Time Slot Scheduling Algorithm (Algorithm 3) to schedule each user on the corresponding antennas on the AP.
+	 
+%	we propose a heuristic algorithm to solve it. In first stage, we associate each MD to an AP which allocates the maximal bandwidth to it sequentially. For MD $i$, we let $A_i$ denote the set of APs such that MD $i$ is in the coverage areas of these APs. There may be some MDs that have already been associated with these APs in $A_i$. MD $i$ will be associated with each AP in $A_i$ temporary and use the interior-point method for the bandwidth allocation problem to obtain allocated bandwidth of each association. Then MD $i$ selects the AP which allocates maximal bandwidth to it to associate with.
+
+%	In second stage, after all MDs have been associated with APs, for each AP, we use the bandwidth allocation algorithm to obtain the receiving time and the allocated bandwidth of each MD associated with the AP. We sum the throughput of all MDs to obtain the total throughput. Then we schedule the receiving time of each MD to the time slots of antennas on APs.
+	
+	For each kind of AP  association there exists a kind of bandwidth allocation such that the sum of the utility function is maximal in that AP association. In other words, for each kind of AP association there exists corresponding proportional fairness respectively. The goal of our algorithm is to find a kind of AP association such that the sum of the utility function is maximum in AAPFM. 
+	
+	We can think the utility function of each user's allocated bandwidth as the satisfaction corresponding to allocated bandwidth for each user. While we maximize the sum of the utility function, we maximize the total satisfaction. When the total satisfaction is maximum, it attains some fairness criterion. Before we solve the optimization problem, we need to choose a utility function that can represent the satisfaction of the user in the problem. In some papers, they think the utility function is a strict concave function when we consider a problem about networks because we think that the satisfaction of the user is decrease margin. If we let the utility function be logarithm, when sum of the utility function is maximum, we call the allocated bandwidth is in proportional fairness.
+	
+	If the solution of our algorithm CVXP is not an optimal solution, what is the meaning to compare the solution with another solution which is also not an optimal solution. We can think we compare these kinds of AP association to each other and find one kind such that the total satisfaction corresponding to the allocated bandwidth is maximum among them. Then, the total satisfaction is close to the optimal solution.
+
+	\begin{algorithm}[t] 
+		\label{algo:apassociation}
+		\small { 
+			\caption{AP Association} 
+			\algsetup{linenosize=\small, linenodelimiter=.} 
+			\begin{algorithmic}[1] 
+				\REQUIRE {$A$: a set of APs, $\{T_i|\forall i \in A\}$ where $T_i$: a set of antennas on AP $i$, $U$: a set of users, and the bit rate table $\{r_{ikj}|\forall i \in A, k \in T_i, j \in U \}$} 
+				\STATE Solve the convex program (\ref{eq:cvxpr}), get the optimal solution $(b^*,p^*)$
+				\FOR {$j$ := 1 \TO $|U|$}
+					\STATE $i' \gets 1$
+					\STATE $b_{i'j} \gets 0$
+					\FOR {$i$ := 1 \TO $|A|$}
+						\STATE $b_{ij} \gets 0$.
+						\FOR {$k$ := 1 \TO $|T_{i}|$}
+							\STATE $b_{ij} \gets b_{ij} + r_{ikj}p_{ikj}^*$
+						\ENDFOR
+						\IF {$b_{ij} > b_{i'j}$}
+							\STATE $i' \gets i$
+							\STATE $b_{i'j} \gets b_{ij}$
+						\ENDIF
+					\ENDFOR
+					\FOR {$i$ := 1 \TO $|A|$}
+						\IF {$i = i'$}
+							\STATE $x_{ij} \gets 1$
+						\ELSE
+							\STATE $x_{ij} \gets 0$
+						\ENDIF
+					\ENDFOR
+				\ENDFOR
+				\STATE Return $x \gets [x_{ij}|\forall i \in A, \forall j \in U ]$.
+			\end{algorithmic} 
+		}
+	\end{algorithm}
+
+	\begin{algorithm}[t] 
+		\label{algo:bandalloc}
+		\small { 
+			\caption{Bandwidth Allocation} 
+			\algsetup{linenosize=\small, linenodelimiter=.} 
+			\begin{algorithmic}[1] 
+				\REQUIRE {$A$: a set of APs, $\{T_i|\forall i \in A\}$ where $T_i$: a set of antennas on AP $i$, $U$: a set of users, $x$: an association matrix, and the bit rate table $\{r_{ikj}|\forall i \in A, k \in T_i, j \in U \}$}
+				\FOR {$i$ := 1 \TO $|A|$}
+					\STATE $U_i \gets \{j|x_{ij} = 1, \forall j \in U \}$
+					\STATE Solve the convex program (\ref{eq:cvxp}), get optimal solution $(b^*,t^*)$
+				\ENDFOR
+				\STATE Return $t \gets \{t_{ikj}^*|\forall i \in A, k \in T_i, j \in U \}, b \gets \{b_j^* |\forall j \in U \}$.
+			\end{algorithmic} 
+		}
+	\end{algorithm}
+
+	\begin{algorithm}[t] 
+		\label{algo:timesched}
+		\small { 
+			\caption{Time Slot Scheduling} 
+			\algsetup{linenosize=\small, linenodelimiter=.} 
+			\begin{algorithmic}[1] 
+				\REQUIRE {$A$: a set of APs, $\{T_i|\forall i \in A\}$ where $T_i$: a set of antennas on AP $i$, $U$: a set of users, $\{t_{ikj}|\forall i \in A, k \in T_i, j \in U\}$ where $t_{ikj}$: receiving time slots}
+				\FOR {$i$ := 1 \TO $|A|$}
+					\FOR {$k$ := 1 \TO $|T_i|$}
+						\FOR {$t$ := 1 \TO $1000$}
+							\STATE $ts_{ikt} \gets 0$
+						\ENDFOR
+					\ENDFOR
+				\ENDFOR
+				\FOR {$i$ := 1 \TO $|A|$}
+					\FOR {$k$ := 1 \TO $|T_i|$}
+						\FOR {$j$ := 1 \TO $U$}
+							\STATE $t \gets 0$
+							\STATE $tsNeed_{ikj} \gets t_{ikj} $
+%							\STATE Schedule $P_{j}$ on time slots of corresponding antennas.
+							\FOR {$l$ := 1 \TO $tsNeed_{ikj}$}
+								\WHILE {$1$}
+									\IF {$ts_{ikt}$ is occupied}
+										\STATE $t \gets t+1$
+										\STATE continue
+									\ENDIF
+									\STATE $overlapped \gets 0$
+									\FOR {$k'$ := $1$ \TO $|T_i|$}
+										\IF {$ts_{ik't} = j$}
+											\STATE $overlapped \gets overlapped + 1$
+										\ENDIF
+									\ENDFOR
+									\IF {$overlapped < c_j$}
+										\STATE $ts_{ikt} \gets j$
+										\STATE $t \gets t+1$
+										\STATE break
+									\ELSE
+										\STATE $t \gets t+1$
+										\STATE continue									
+									\ENDIF
+								\ENDWHILE
+							\ENDFOR
+						\ENDFOR
+					\ENDFOR
+				\ENDFOR
+				\STATE Return $ts \gets \{ts_{ikt}|\forall i \in A, k \in T_i, j \in \{1,...,1000\} \}$.
+			\end{algorithmic} 
+		}
+	\end{algorithm}	
+%	\begin{algorithm}[t] 
+%		\small { 
+%			\caption{AP Association and Bandwidth Allocation} 
+%			\algsetup{linenosize=\small, linenodelimiter=.} 
+%			\begin{algorithmic}[1] 
+%				\REQUIRE {A set of APs $A$, a set of antennas $T_{i}$ on AP $i$, $\forall i \in A$, and a set of mobile devices $U$} 
+%				\STATE Calculate the data rate $r_{ikj}$ between antenna $k$ on AP $i$ and MD $j$ according to the power of antenna $k$ and the distance between AP $i$ and MD $j$.
+%				\STATE The data rate table $R$ is composed of $r_{ikj}, \forall i \in A, k \in T_{i}, j \in U$; 
+%				\FOR {$j \in U$}
+%				\STATE $A_j \gets$ the set of APs of which $j$ is in the coverage areas
+%				\FOR {$i \in A_j$}
+%				\STATE $U_{i} \gets$ the set of MDs associated with AP $i$.
+%				\STATE $U_{i} \gets$ $U_{i} \cap \{j\}$
+%				\STATE $P \gets$ interior-point method $(T_{i},U_{i})$.
+%				\STATE $P_{j} \gets$ element $j$ in $P$.
+%				\STATE $BW_{ij} \gets$ the temporary allocated bandwidth from $i$ derive by $R$ and $P_{j}$.
+%				\STATE $U_{i} \gets$ $U_{i} \setminus \{j\}$
+%				\ENDFOR
+%				\STATE Select AP $i$ to be associated with such that $BW_{ij}$ is maximum in $BW_{j}=\{BW_{1j},...,BW_{|A_{j}|j}\}$.
+%				\ENDFOR
+%				\FOR {$i \in A$}
+				%    \STATE $T_i \gets$ the set of antennas on $i$
+%				\STATE $U_i \gets$ the set of MDs associated with AP $i$.
+%				\STATE $P_{i} \gets$ interior-point $(T_{i},U_{i})$.
+				%    \STATE $throughput[i] \gets$ the throughput computed by algo. 1
+%				\FOR {$j \in U_i$}
+%				\STATE $P_{j} \gets$ element $j$ in $P_{i}$.
+%				\STATE Calculate $BW_{ij}$ from $R, T_{i}, P_{j}$.
+%				\ENDFOR
+%				\ENDFOR
+%				\STATE Return $P \gets \{P_{1},...,P_{|A|}\}$.
+%			\end{algorithmic} 
+%		}
+%	\end{algorithm}

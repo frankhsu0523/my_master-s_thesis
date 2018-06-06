@@ -1,0 +1,8 @@
+% AP Association Analysis
+\section{Analysis}
+	After solving the convex program, we can obtain $b_j^* = \sum_{i \in A} b_{ij}^*, \forall j \in U.$
+	For each user $j$, we associate user $j$ with AP $i'$ such that $b_{i'j}^*$ is maximum in $\{b_{ij}^*|\forall i \in A \}.$ 
+	Let $$\hat{b}_j = b_{i'j}^*, \forall j \in U.$$
+	Then, $$\hat{b}_j \ge \frac{b_j^*}{|A|}.$$
+	We know $$\sum_{j \in U} \log{b_j} = \sum_{i \in A} \sum_{j \in U_i} \log{b_j} \ge \sum_{i \in A} \sum_{j \in U_i} \log{\hat{b}_j} = \sum_{j \in U} \log{\hat{b}_j}.$$
+	Then, $$\sum_{j \in U} \log{\hat{b}_j} \ge \sum_{j \in U} \log{\frac{b_j^*}{|A|}} $$ $$ = \sum_{j \in U} (\log{b_j^*}-\log{|A|}) = \sum_{j \in U} \log{b_j^*} - |U|\log{|A|} \ge OPT - |U|\log{|A|}.$$

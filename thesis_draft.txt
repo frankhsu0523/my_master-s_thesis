@@ -1,0 +1,32 @@
+Abstract
+Table of Contents
+List of Tables
+List of Figures
+Acknowledgements
+Chapter 1: Introduction
+	研究動機： 目前評估SDN的Routing Algorithm的表現能力越來越受到重視, 所提供評估的工具也越來越多. 而在測試演算法的表現時, 越真實的環境越具有價值, 然而目前市面上的OpenFlow交換器價格不斐, 
+			  因此利用GENI平台最為開發使其達到具有成本效益且保有其真實性的測試環境.
+			  (附上比較圖)
+
+Chapter 2: General Background Information(Related Work)
+	2.1 Software-Defined Network
+		2.1.1 Concept/ Overview
+		2.1.2 OpenFlow
+	2.2 GENI
+	2.3 Open vSwitch
+	2.4 Ryu controller
+Chapter 3: System model
+	3.1 GENI model (軟體架構圖)
+	3.2 GENI 硬體設備
+Chapter 4: Implementation of Routing Algorithm in GENI
+	3.1 online algorithm
+	3.2 offline algorithm
+	3.3 special case(path degree limit)
+Chapter 5: Experiment results
+	5.1 problem definition
+	5.2 reference of algorithm(GK, PD, ...)
+	5.3 result
+Chapter 6: Summary
+	6.1 conclusion
+	6.2 future work
+Chapter 7: References

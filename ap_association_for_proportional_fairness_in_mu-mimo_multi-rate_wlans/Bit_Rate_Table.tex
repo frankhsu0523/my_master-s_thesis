@@ -1,0 +1,35 @@
+% Bit Rate Table
+\section{Bit Rate Table}
+	We build a bit rate table corresponding to the bit rate of the link between an antenna on an AP and a user derived from the transmission power of the antenna on the AP and the distance between the AP and the user, according to Shannon-Hartley theorem
+	$$ C=B\log_2(1+S/N) $$
+	where $C$ is the channel capacity in bps, $B$ is the bandwidth of the channel, and $S/N$ is the signal-to-noise ratio (SNR). The receiving power on the user is proportional to the transmit power and inversely proportional to the square of the distance. We set the bandwidth of each channel to $20 MHz$. Thus, the bit rate corresponding to the power and the distance is list in Table \ref{Tab:drol}.
+
+	\begin{table} \small
+		\centering \caption{User bit rate table}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|c|c|c|} % m{5.38cm}
+			\hline	Power (dBm) & Distance (m) & Bit rate (Mbps) \\
+			\hline	$17$ & $\le 150$ & $6.5$ \\
+			\hline	$17$ & $\le 100$ & $13$ \\		
+			\hline	$17$ & $\le 85$ & $19.5$ \\
+			\hline	$17$ & $\le 70$ & $26$ \\
+			\hline	$17$ & $\le 55$ & $39$ \\
+			\hline	$17$ & $\le 50$ & $52$ \\
+			\hline	$17$ & $\le 45$ & $65$ \\
+			\hline	$14$ & $\le 100$ & $6.5$ \\
+			\hline	$14$ & $\le 70$ & $13$ \\
+			\hline	$14$ & $\le 55$ & $19.5$ \\
+			\hline	$14$ & $\le 50$ & $26$ \\
+			\hline	$14$ & $\le 40$ & $39$ \\
+			\hline	$14$ & $\le 35$ & $52$ \\
+			\hline	$14$ & $\le 30$ & $65$ \\
+			\hline	$11$ & $\le 70$ & $6.5$ \\
+			\hline	$11$ & $\le 50$ & $13$ \\
+			\hline	$11$ & $\le 40$ & $19.5$ \\
+			\hline	$11$ & $\le 35$ & $26$ \\
+			\hline	$11$ & $\le 30$ & $39$ \\
+			\hline	$11$ & $\le 25$ & $52$ \\
+			\hline	$11$ & $\le 20$ & $65$ \\
+			\hline
+		\end{tabular}\label{Tab:drol}
+	\end{table}

@@ -1,0 +1,133 @@
+
+\documentclass[conference]{IEEEtran}
+
+\usepackage[linesnumbered, ruled]{algorithm2e}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{example*}{Example}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+
+\usepackage{siunitx}
+%\usepackage[square,numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage[caption=false]{subfig}
+\usepackage{cite}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\columnsep 0.21in
+\begin{document}
+
+\title{This is Title}
+
+\author{
+	\IEEEauthorblockN{Shu-Yen Hou\IEEEauthorrefmark{1},
+		and Ming-Jer Tsai\IEEEauthorrefmark{1}
+	}
+	\IEEEauthorblockA{
+		\IEEEauthorrefmark{1}Department of Computer Science, National Tsing Hua University, Hsinchu, Taiwan, ROC \\
+		lazyeagles@gmail.com, itriA00550@itri.org.tw, g9962515@cs.nthu.edu.tw, mjtsai@cs.nthu.edu.tw
+	}
+}
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+abstract...	
+\end{abstract}
+
+% no keywords
+
+\section{Introduction}
+...
+
+\section{Preliminary}
+...
+
+\subsection{The Routing Protocol}\label{subsec:RPL}
+...
+
+\subsection{The MAC Protocol}\label{subsec:TSCH}
+..
+
+\subsection{The Scheduling Approach}\label{subsec:DeTAS}
+..
+
+\subsection{The Data Delivery Probability}\label{subsec:data delivery probability}
+..
+
+\section{The Problem}
+
+\subsection{The Scenario and Network Model}\label{subsec:scenario}
+\subsubsection{The Scenario}
+In the smart grid, there are two methods to connect user's meters to transmit the informations of electric using to the power company. One is a wireless network and the other is a wired network. For the wireless network, we use Radio Frequency (RF) sensors to connect. And for the wired network, we use Power Line Communications (PLC) sensors to connect. 
+\par For each meter be covered by a wired or wireless sensor, it means the informations of the meter can be transmitted to the power company by the wired or the wireless sensor, which covers it.	
+\par If we only use the wired network to connect user's meters to transmit to the power company, here comes some questions. First, because PLC sensors are wired sensors, the number of meters by one PLC can cover are limited. It means it needs to take a lot of PLCs to cover all user's meters. Second, because of the previous question, it need to take a lots human resources to place the PLCs. Based on the above, it need much more cost, if we only use the wired network to cover all user's meters. 
+\par On the other hand, if we only use the wireless network to cover all user's meters. It also comes some questions. In the wireless network, there are links between the RFs and meters, each link has probability, which means the sccessful rate of transmit informations from the meter to the RF. The informations of meters can be transmited successful by the RFs depends on value of the probability of the RF. Even there are links between meters and RFs, it is still possible that the value of probabilities are too low to transmit informations to the RF successfully. And the quality of the network transmission also is the topic which needs to satisfy. Because of the previous question, we can't only use wireless networks in our problem. Obviously, it needs both wired networks and wireless networks to transmit the informations of user's meters to the power company in the smart grid. 
+\par But how to place the PLCs and the RFs in low cost, which means the number of the PLCs and the RFs is as few as possible, and also needs in the certain quality, it is what our problem is. 
+
+
+\subsection{The Problem and Hardness}\label{subsec:problem}
+...
+\begin{definition}\label{def:msplrg}
+	Problem definition...
+\end{definition}
+
+
+\begin{theorem}\label{thm:np-hard}
+	...
+\end{theorem}
+\begin{proof}
+	...
+\end{proof}
+
+\section{The Proposed Algorithm}
+
+\subsection{The Cluster Construction}\label{subsec: cluster construction}
+...
+
+\subsection{The Sink Selection}\label{subsec: cluster selection}
+...
+
+\subsection{The DODAG Establishment}\label{subsec: cluster prune}
+...
+
+
+\section{Simulations}
+
+\subsection{Simulation Setup}
+
+\textbf{Network instances:}
+
+\textbf{Comparison methods and performance metrics:}
+
+\subsection{Simulation Results}
+
+\textbf{The number of selected concentrators and assigned channels:}
+
+\textbf{The minimum and maximum sizes of the DODAGs:} 
+
+\section{Conclusion}
+...
+
+
+\bibliographystyle{IEEEtran}
+%\bibliography{references}
+
+
+% that's all folks
+\end{document}
+
+

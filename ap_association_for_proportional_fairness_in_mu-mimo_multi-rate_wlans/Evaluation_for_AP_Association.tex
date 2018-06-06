@@ -1,0 +1,139 @@
+% Evaluation for AP Association
+\section{Evaluation for AP Association}
+	We will evaluate our algorithm CVXP by simulation and compare the result of CVXP to the result of a naive algorithm HDR that each user associates with the AP which provides the greatest bit rate to the user. We evaluate the sum of the utility function when the distribution of users' position is uniform, dense in a region, or random as well as the number of antennas of each user is uniform or random.
+	
+	We design $3$ experiments. In each experiment, we place $16$ APs on a $4\times4$ grid whose spacing is $100 M$ in a $500M \times 500M$ square. Fig. \ref{figure:exp08_p_a_v1} shows the distribution of APs. The transmit power of each antenna on an AP can be set $17 dBm$, $14 dBm$, or $11 dBm$. The radius of the coverage of the antenna corresponding to the power $17 dBm$, $14 dBm$, and $11 dBm$ is $150 M$, $100 M$, and $70 M$. There are $3$ antennas on each AP and the power of each antenna on each AP will be set $17 dBm$, $14 dBm$, and $11 dBm$ respectively.
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp08_position_ap_v1.png}
+				\caption{The distribution of APs on a $4 \times 4$ grid in a $500M \times 500M$ square.}
+				\label{figure:exp08_p_a_v1}
+			\end{center}
+		\end{figure}
+
+\subsection{Experiment 1}
+	There are $441$ users distributed uniformly in the square. The position and the number of antennas on each user are shown in Fig. \ref{figure:exp05_p_v4}. The color of a point means the number of antennas on the user. In this experiment, each user has $2$ antennas. We perform our AP association algorithm CVXP as well as high data rate algorithm HDR respectively and then observe the bandwidth allocation and the sum of the utility function.
+
+	
+	Fig. \ref{figure:exp05_a_b} shows the bandwidth allocation and the sum of the utility function of CVXP and HDR respectively. The value of the point on the red line (green line) means the amount of the bandwidth allocated to the corresponding user by CVXP (HDR). There are $47\%$ users obtaining more bandwidth from CVXP than HDR. There are $31\%$ users obtaining more bandwidth from HDR than CVXP. The sum of the utility function of CVXP is $144.988$ which is greater than the sum of the utility function of HDR which is $136.479$. We can say that CVXP outperforms HDR.
+	
+	Fig. \ref{figure:exp05_s_b_b_t_a_b_r_t_v2} shows the relation between the allocated bandwidth and the receiving time for each user. Although the maximum of the allocated bandwidth is 52 times as much as the minimum of the allocated bandwidth, the maximum of the receiving time is 5.2 times as much as the minimum of the receiving time. All users have non-zero time to receive data. We also can observe that although each user has 2 antennas, the receiving time is no more than 1 second. The reason may be the number of antennas on the AP is not enough to allocate more receiving time to users.
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp05_position_v4.png}
+				\caption{The distribution of APs on a $4 \times 4$ grid and users in a $500M \times 500M$ square.}
+				\label{figure:exp05_p_v4}
+			\end{center}
+		\end{figure}
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp05_allocated_bandwidth.png}
+				\caption{The sorted allocated bandwidth in non-decreasing order.}
+				\label{figure:exp05_a_b}
+			\end{center}
+		\end{figure}
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp05_sorted_by_bw_time_allocated_bandwidth_receiving_time_v2.png}
+				\caption{The sorted allocated bandwidth and the corresponding receiving time.}
+				\label{figure:exp05_s_b_b_t_a_b_r_t_v2}
+			\end{center}
+		\end{figure}
+
+\subsection{Experiment 2}
+	There are $441$ users with different number of antennas distributed uniformly in the square. The position and the number of antennas on each user are shown in Fig. \ref{figure:exp07_p_v4}. The color represents the number of antennas. 
+			
+	Fig. \ref{figure:exp07_a_b} shows the amount of the bandwidth allocated to each user and the sum of the utility function by CVXP and HDR. In this experiment, there are $28\%$ users allocated more bandwidth by HDR than CVXP. There are $48\%$ users allocated more bandwidth by CVXP than HDR. The sum of the utility function of CVXP is $146.695$ and that of HDR is $136.479$. We can say that CVXP outperforms HDR.
+
+	
+	Fig. \ref{figure:exp07_s_b_b_t_a_b_r_t_v2} shows the allocated bandwidth and the corresponding receiving time of each user by CVXP. The maximum of allocated bandwidth is $48$ times as much as the minimum of that. The maximum of receiving time is $4.8$ times as much as the minimum of that. The proportional criterion makes the deviation of the receiving time smaller when we compare it with the deviation of the allocated bandwidth.
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp07_position_v4.png}
+				\caption{The distribution of APs on a $4 \times 4$ grid and users in a $500M \times 500M$ square.}
+				\label{figure:exp07_p_v4}
+			\end{center}
+		\end{figure}
+	
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp07_allocated_bandwidth.png}
+				\caption{The sorted allocated bandwidth in non-decreasing order.}
+				\label{figure:exp07_a_b}
+			\end{center}
+		\end{figure}
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp07_sorted_by_bw_time_allocated_bandwidth_receiving_time_v2.png}
+				\caption{The sorted allocated bandwidth and the corresponding receiving time.}
+				\label{figure:exp07_s_b_b_t_a_b_r_t_v2}
+			\end{center}
+		\end{figure}
+
+\subsection{Experiment 3}
+	There are $441$ users with different numbers of the antennas in the square. There are $289$ users among them distributed densely in the lower left region of the square. Each user has the same number of antennas as in experiment 2. The position and the number of antennas on each user are shown in Fig. \ref{figure:exp08_p_v4}.
+	
+	Fig. \ref{figure:exp08_a_b} shows the amount of the bandwidth allocated to each user and the sum of the utility function by CVXP and HDR. There are $85\%$ users to be allocated more bandwidth by CVXP than HDR. There are $15\%$ users to be allocated more bandwidth by HDR than CVXP. The sum of the utility function of CVXP is $101.205$. The sum of the utility function of HDR is $57.8207$. We can say that CVXP outperforms HDR in this experiment.
+
+	Fig. \ref{figure:exp08_s_b_b_t_a_b_r_t_v2} shows the allocated bandwidth and the corresponding receiving time of each user by CVXP. The maximum of allocated bandwidth is $485$ times as much as the minimum of that. The maximum of receiving time is $48.5$ times as much as the minimum of that.
+					
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp08_position_v4.png}
+				\caption{The distribution of APs on a $4 \times 4$ grid and users in a $500M \times 500M$ square.}
+				\label{figure:exp08_p_v4}
+			\end{center}
+		\end{figure}
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp08_allocated_bandwidth.png}
+				\caption{The sorted allocated bandwidth in non-decreasing order.}
+				\label{figure:exp08_a_b}
+			\end{center}
+		\end{figure}
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp08_sorted_by_bw_time_allocated_bandwidth_receiving_time_v2.png}
+				\caption{The sorted allocated bandwidth and the corresponding receiving time.}
+				\label{figure:exp08_s_b_b_t_a_b_r_t_v2}
+			\end{center}
+		\end{figure}	
+
+\subsection{Experiment 4}
+There are $441$ users with different numbers of the antennas distributed randomly in the square. Each user has the same number of antennas as in experiment 2. The position and the number of antennas on each user are shown in Fig. \ref{figure:exp09_p_v4}.
+
+Fig. \ref{figure:exp09_a_b} shows the amount of the bandwidth allocated to each user and the sum of the utility function by CVXP and HDR. There are $51\%$ users to be allocated more bandwidth by CVXP than HDR. There are $45\%$ users to be allocated more bandwidth by HDR than CVXP. The sum of the utility function of CVXP is $206.785$. The sum of the utility function of HDR is $202.539$. We can say that CVXP outperforms HDR in this experiment.
+
+Fig. \ref{figure:exp09_s_b_b_t_a_b_r_t_v2} shows the allocated bandwidth and the corresponding receiving time of each user by CVXP. The maximum of allocated bandwidth is $86$ times as much as the minimum of that. The maximum of receiving time is $8.6$ times as much as the minimum of that.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10cm]{fig/exp09_position_v4.png}
+		\caption{The distribution of APs on a $4 \times 4$ grid and users in a $500M \times 500M$ square.}
+		\label{figure:exp09_p_v4}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10cm]{fig/exp09_allocated_bandwidth.png}
+		\caption{The sorted allocated bandwidth in non-decreasing order.}
+		\label{figure:exp09_a_b}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10cm]{fig/exp09_sorted_by_bw_time_allocated_bandwidth_receiving_time_v2.png}
+		\caption{The sorted allocated bandwidth and the corresponding receiving time.}
+		\label{figure:exp09_s_b_b_t_a_b_r_t_v2}
+	\end{center}
+\end{figure}	

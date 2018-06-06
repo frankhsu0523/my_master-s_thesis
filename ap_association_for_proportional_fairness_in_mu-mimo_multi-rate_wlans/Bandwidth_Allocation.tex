@@ -1,0 +1,41 @@
+% Bandwidth Allocation
+\section{Problem and Algorithm}
+	In a WLAN, each user needs to be allocated bandwidth to transmit or receive data. The bandwidth of a user in the downlink is the number of total receiving bits in one second. The bandwidth $b_j$ can be formulated as $b_j = \sum_{i} r_{ij} \times t_{ij}$, where $r_{ij}$ is the bit rate, $t_{ij}$ is the receiving time, and $ 0 \le t_{ij} \le 1$. The central controller of APs schedules the communication time of each user associated with some AP under certain fairness criterion. The amount of allocated bandwidth for each user varies according to different fairness criterions. The figure \ref{figure:exp03_a_b} shows the distribution of sorted allocated bandwidth in non-decreasing order under some fairness criterions like maximizing total bandwidth (no fairness), proportional fairness, time-based fairness, and bandwidth-based fairness. We can observe that fairness and total bandwidth are trade-off.
+	
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp03_allocated_bandwidth.eps}
+				\caption{The distribution of sorted allocated bandwidth in non-decreasing order.}
+				\label{figure:exp03_a_b}
+			\end{center}
+		\end{figure}
+
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=10cm]{fig/exp03_allocated_bandwidth_zoom_in.eps}
+				\caption{The detail of the distribution of sorted allocated bandwidth.}
+				\label{figure:exp03_a_b_z_i}
+			\end{center}
+		\end{figure}
+			
+	In this thesis, we enforce the proportional fairness to bandwidth allocation because it has been in some recent standards (e.g., WiMAX, LTE). The definition of the proportional fairness is that if the allocation $b^{*}=\{b_1^*,...,b_n^*\}$ is proportionally fair, then any other allocation $b = \{b_1,...,b_n\}$ will result in
+	$$ \sum_{i = 1}^{n} \frac{b_i - b_i^*}{b_i^*} \le 0. $$
+	The utility function for the proportional fairness is $\log(\cdot)$. we maximize the sum of the utility function to attain the proportional fairness condition.
+
+	For bandwidth allocation in our problem, first, we consider a scenario that there is an AP with $l$ antennas in a network supporting MU-MIMO. There are $n$ users associating with the AP. For each user $i$, there are $c_i$ antennas on user $i$. When the AP would like to communicate to user $i$ in the downlink, the AP can use at most $c_i$ antennas to transmit data to user $i$ simultaneously. During each unit time, we would like to allocate the bandwidth to each user under proportional fairness condition. Then, according to the allocated bandwidth, we schedule the transmission time from each antenna on the AP to each user. We formulate our bandwidth allocation problem as follows:
+
+	\begin{equation*}
+		\begin{aligned}
+			& \text{maximize} 
+			& & \sum_{j \in U} \log ( b_{j} ) \\
+			& \text{subject to} 
+			& & b_{j} = \sum_{k \in T} r_{kj}p_{kj}, & & \forall j \in U,\\
+			& & & \sum_{k\in T} p_{kj} \le c_{j}, & &  \forall j \in U, \\
+			& & & \sum_{j\in U} p_{kj} \le 1, & & \forall k \in T,  \\
+			& & & 0 \le p_{kj} \le 1, & & \forall k \in T, j \in U.
+		\end{aligned}
+	\end{equation*}
+
+	The first constraint shows the bandwidth allocated to user $j$ equals to the sum of the bit rate of the link between the antenna  $k$ and user $j$ multiplying the receiving time $p_{kj}$ solved by our algorithm. The second constraint specifies the total receiving time of user $j$ is no more than the number of antennas on user $j$. The third constraint means the total transmission time of antenna $k$ on the AP is no more than the unit time. So, the transmission time from antenna $k$ on the AP to user $j$ is also no more than the unit time and not less than zero.
+
+	The above program is a convex optimization problem because the sum of logarithm function is non-decreasing concave function and the constraints are all linear. We can use the interior-point method to solve it and obtain an optimal solution $p_{kj}^*$, $b_j^*$ in polynomial time \cite{boyd2004convex}. The allocated bandwidth corresponding to the solution $b_j^*$ is under the proportional fairness condition.

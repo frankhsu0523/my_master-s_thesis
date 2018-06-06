@@ -1,0 +1,12 @@
+% Conclusion
+	AP association is an important problem for bandwidth allocation to each user under some fairness criterion in WLANs. In this thesis, we consider an AP association problem in MU-MIMO WLANs. Each AP with multiple antennas can transmit data to multiple users simultaneously in the downlink.
+	To the best of our knowledge, we are first to introduce an AP association problem for proportional fairness in a MU-MIMO WLAN. The algorithms for AP association in SISO WLANs are not suitable for our problem because we need to decide which user uses which antennas on the AP. 
+	
+	Our algorithm called CVXP is to formulate the problem into an integer program and relax it to a convex program. we solve the convex program in polynomial time and obtain the optimal fractional solution. According to the solution, we associate each user to the AP which allocate the maximum fractional bandwidth to the user. After AP association, for each AP, we allocate bandwidth to each user in the association set of users. We analyze our algorithm CVXP and make sure that the solution of CVXP is greater than $OPT - |U|\log{|A|}$ where $U$ is the set of users and $A$ is the set of APs. 
+
+%	The result of simulations will be depicted. T.B.D. for different distribution of positions of users and different number of antennas on users. 
+
+	We run 3 sets of simulations that the number of users is $225$, $441$, and $666$, respectively. We compare CVXP to a common algorithm called HDR which is to associate each user with the AP which gives the highest sum of the bit rate to the user. The result of simulations show CVXP outperforms HDR. In each simulation, the sum of the utility function of bandwidth allocated to the user from CVXP is greater than that from HDR. It means the bandwidth allocation from CVXP is closer to the proportional fairness criterion. The number of users who obtain more bandwidth from CVXP is greater than that from HDR.
+	
+%	The future work will be depicted. T.B.D.
+	The lower bound of our algorithm depends on the number of users. In the future work, we would like to improve our lower bound by analyzing the fractional optimal solution and modifying the rounding algorithm.

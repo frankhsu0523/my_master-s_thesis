@@ -1,0 +1,335 @@
+% Evaluation of AP Association 2 (2015-7-2)
+\section{Evaluation for AP Association}
+	We will evaluate the results of the following algorithms:
+	\begin{itemize}
+		\item Our algorithm CVXP, which associates users to APs according to the solution of the corresponding convex program.
+		\item A naive algorithm HDR, which associates a user to an AP which provides the greatest sum of bit rate to the user.
+	\end{itemize}
+	After performing above algorithms, we will run the bandwidth allocation algorithm for each set of users who associate with the same AP. Each user will obtain bandwidth allocated by the algorithm.
+
+	We will compare two values count from the results of CVXP and HDR as follows:
+	\begin{itemize}
+		\item The sum of the utility function of the bandwidth of each user. We can refer to this value as the total satisfaction of all users. We would like to maximize the total satisfaction. When the total satisfaction is maximum, the allocated bandwidth is under proportional fairness criterion.
+		\item The number of users who obtain more bandwidth from CVXP and HDR. This value can show which algorithm can bring benefit to more users.
+	\end{itemize}
+
+	In the simulation setting for APs, we assume all APs use different channels so that they will not interfere to each other. In reality, we can deploy APs in a region by prior arrangement to avoid interference. We let each AP have $3$ antennas. The transmit power of antennas is set to $17 dBm$, $14 dBm$, and $11 dBm$, respectively. The radius of the coverage of the antenna with power $17 dBm$, $14 dBm$, and $11 dBm$ is $150 M$, $100 M$, and $70 M$, respectively. In our simulations, the user bit rate depends on the transmit power of the antenna on the AP and the distance between the user and the AP. The user bit rate information is shown in Table \ref{Tab:drol}.
+
+	In the simulation setting for users, we set the range of the number of antennas on each user is from $1$ to $3$ and assign the number to the user randomly. We assume the user bit rate from any antenna on the user to the same antenna on the AP is the same. The position of each user in the simulation is fixed.
+
+	In each simulation, we place $16$ APs on a $4 \times 4$ grid whose spacing is $100 M$. The grid is put in the center of a $500 M \times 500 M$ square. Fig. \ref{figure:exp08_p_a_v1} shows the deployment of APs. All users are put in the square so that we can make sure that each user has at least one AP to associate with.
+	
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=10cm]{fig/exp08_position_ap_v1.eps}
+			\caption{The deployment of APs on a $4 \times 4$ grid in the center of a $500 M \times 500 M$ square.}
+			\label{figure:exp08_p_a_v1}
+		\end{center}
+	\end{figure}
+		
+	We evaluate CVXP and HDR for the various number of users and the various distribution of positions of users in the square. We will perform $3$ sets of simulations different in the number of users in the square. The number of users in simulations are $225$, $441$, and $666$, respectively. The simulations are perfromed from moderately loaded network to heavily loaded network.
+
+	In each set of simulations, the distributions of positions of users are various. We consider two kinds of distributions. First, the distribution is uniform. Second, the distribution has a hot spot which means a location where most users reside in. In order to simulate the distribution with a hot spot, we separate the square into $3 \times 3$ sub-squares and choose one sub-square as a hot spot, shown as Fig. \ref{figure:hotspot}. Because the square is symmetric, we will only simulate the center sub-square, the middle-left sub-square, and the lower-left sub-square as the hot spot, respectively.
+
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=5cm]{fig/hotspot.png}
+			\caption{The square is separated to $3 \times 3$ sub-squares. The number in each sub-square means the number of users in the sub-square. In this figure, the hot spot is the center sub-square.}
+			\label{figure:hotspot}
+		\end{center}
+	\end{figure}
+	
+	For describing conveniently, we will call the set of simulations with $225$, $441$, $666$ users SIMUL1, SIMUL2, SIMUL3.
+
+	In SIMUL1, we will perform $4$ simulations, termed SIMUL1-1, SIMUL1-2, SIMUL1-3, and SIMUL1-4. In SIMUL1-1, SIMUL1-2, and SIMUL1-3, we simulate the distribution with a hot spot in the center, middle-left, and lower-left sub-square, respectively. In SIMUL1-4, we simulate the distribution is uniform.
+
+	In SIMUL1-1, we will perform $2$ simulations, termed SIMUL1-1-1 and SIMUL1-1-2. We model a moderately hot spot and a heavily hot spot in these simulations. The difference is the number of users in the hot spot.
+
+	SIMUL1-2 and SIMUL1-3 are planned by the same rule as SIMUL1-1. SIMUL2 and SIMUL3 are planned by the same as SIMUL1.
+
+	We solve the convex program using CVX which is a Matlab-based modeling system for convex optimization (http://cvxr.com/cvx/).
+
+	Next, we will show the setting and the result of each simulation. In each simulation, we will generate $10$ patterns of the distribution of positions of users such that the number of users in each sub-square is the same as the setting.
+
+%=========
+%=========
+\subsection{SIMUL1}
+	In SIMUL1, the number of users in the square is $225$. The number of users in each sub-square is shown in Table \ref{Tab:nouies1}. We will simulate as follows: 
+	\begin{itemize}
+		\item The hot spot is in the center, middle-left, and lower-left sub-square.
+		\item The number of users in each sub-square is the same.
+	\end{itemize}
+
+	\begin{table} \small
+		\centering \caption{Number of users in each sub-square in SIMUL1}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|r||c||c||c||c||c||c||c|} % m{5.38cm}
+			\hline
+			&\multicolumn{7}{|c|}{Simulation} \\
+			\hline	sub-square & 1-1-1 & 1-1-2 & 1-2-1 & 1-2-2 & 1-3-1 & 1-3-2 & 1-4 \\
+			\hline
+			\hline	lower-left & $11$ & $19$ & $20$ & $25$ & $123$ & $75$ & $25$ \\
+			\hline	middle-left & $15$ & $19$ & $123$ & $75$ & $20$ & $25$ & $25$ \\
+			\hline	upper-left & $10$ & $19$ & $20$ & $25$ & $8$ & $15$ & $25$ \\
+			\hline	lower-middle & $15$ & $19$ & $9$ & $15$ & $20$ & $25$ & $25$ \\
+			\hline	center & $123$ & $75$ & $20$ & $25$ & $20$ & $25$ & $25$ \\
+			\hline	upper-middle & $15$ & $18$ & $9$ & $15$ & $9$ & $15$ & $25$ \\
+			\hline	lower-right & $10$ & $18$ & $8$ & $15$ & $8$ & $15$ & $25$ \\
+			\hline	middle-right & $15$ & $19$ & $8$ & $15$ & $9$ & $15$ & $25$ \\
+			\hline	upper-right & $11$ & $19$ & $8$ & $15$ & $8$ & $15$ & $25$ \\
+			\hline
+		\end{tabular}\label{Tab:nouies1}
+	\end{table}
+	
+	Fig. \ref{figure:simul1} and Table \ref{Tab:simul1} shows the comparison of the sum of the utility function and the number of users obtaining more bandwidth in each simulation. We can see that in both comparisons CVXP performs better than HDR.
+	
+	\begin{figure}
+		\begin{center}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul1_utility.eps}
+				\caption{sum of utility function}
+				\label{figure:simul1_a}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul1_users.eps}
+				\caption{number of users}
+				\label{figure:simul1_b}
+			\end{subfigure}
+			\caption{Comparison of sum of utility function and number of users obtaining more bandwidth in SIMUL1.}
+			\label{figure:simul1}
+		\end{center}
+	\end{figure}
+
+	\begin{table} \small
+		\centering \caption{Sum of utility function and number of users obtaining more bandwidth in SIMUL1.}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|c||c|c||c|c||c|c||c|c|} % m{5.38cm}
+			\hline
+			&\multicolumn{4}{|c||}{Sum of utility function} & \multicolumn {4}{|c|}{Number of users} \\
+			\hline & \multicolumn{2}{|c||}{CVXP} & \multicolumn{2}{|c||}{HDR} & \multicolumn{2}{|c||}{CVXP} & \multicolumn{2}{|c|}{HDR} \\
+			\hline	Simulation & AVG & STD & AVG & STD & AVG & STD & AVG & STD \\
+			\hline
+			\hline	1-1-1 & $182$ & $5$ & $179$ & $5$ & $64\%$ & $5\%$ & $30\%$ & $6\%$ \\
+			\hline	1-1-2 & $178$ & $6$ & $176$ & $7$ & $49\%$ & $10\%$ & $35\%$ & $6\%$ \\
+			\hline	1-2-1 & $134$ & $8$ & $123$ & $7$ & $63\%$ & $3\%$ & $34\%$ & $4\%$ \\
+			\hline	1-2-2 & $155$ & $5$ & $150$ & $5$ & $60\%$ & $4\%$ & $34\%$ & $3\%$ \\
+			\hline	1-3-1 & $99$ & $6$ & $80$ & $7$ & $56\%$ & $4\%$ & $41\%$ & $4\%$ \\
+			\hline	1-3-2 & $142$ & $7$ & $134$ & $7$ & $54\%$ & $5\%$ & $40\%$ & $5\%$ \\
+			\hline	1-4 & $161$ & $3$ & $158$ & $3$ & $53\%$ & $7\%$ & $34\%$ & $4\%$ \\
+			\hline
+		\end{tabular}\label{Tab:simul1}
+	\end{table}	
+	When we observe Fig. \ref{figure:simul1_a}, we can see some trends. First, when the hot spot is the center sub-square (the lower-left sub-square), the sum of the utility function (i.e., the total satisfaction) is the greatest (smallest). It makes sense because users in the center sub-square have more choices of APs for AP association than users in the lower-left sub-square. CVXP also performs better when the hot spot is the center sub-square than the number of users in each sub-square is uniform. This is because our deployment of APs is uniform in the square, users near the margin of the square have less choice of APs for AP association.
+	
+	Second, the sum of the utility function in the moderately loaded hot spot in the middle-left or lower-left sub-square is better than that in the heavily loaded hot spot in the middle-left or lower-left sub-square. It makes sense because APs in the moderately loaded hot spot may be associated with less users and obtain better the sum of the utility function.
+	
+	Fig. \ref{figure:simul1_b} shows CVXP makes more users obtaining more bandwidth than HDR in all hot spot and uniform simulations.
+	
+	The details of each simulation are shown in Appendix \ref{apendix:dos}.
+%=========
+%\subsubsection{SIMUL1-1-1}
+%\subsubsection{SIMUL1-1-2}
+%\subsubsection{SIMUL1-2-1}
+%\subsubsection{SIMUL1-2-2}
+%\subsubsection{SIMUL1-3-1}
+%\subsubsection{SIMUL1-3-2}
+%\subsubsection{SIMUL1-4}
+	
+%=========
+%=========
+\subsection{SIMUL2}
+	In SIMUL2, the number of users in the square is $441$. The number of users in each sub-square is shown in Table \ref{Tab:nouies2}. We will simulate as follows: 
+	\begin{itemize}
+		\item The hot spot is in the center, middle-left, and lower-left sub-square.
+		\item The number of users in each sub-square is the same.
+	\end{itemize}
+	
+	\begin{table} \small
+		\centering \caption{Number of users in each sub-square in SIMUL2}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|r||c||c||c||c||c||c||c|} % m{5.38cm}
+			\hline
+			&\multicolumn{7}{|c|}{Simulation} \\
+			\hline	sub-square & 2-1-1 & 2-1-2 & 2-2-1 & 2-2-2 & 2-3-1 & 2-3-2 & 2-4 \\
+			\hline
+			\hline	lower-left & $19$ & $37$ & $40$ & $49$ & $246$ & $147$ & $49$ \\
+			\hline	middle-left & $30$ & $37$ & $246$ & $147$ & $40$ & $49$ & $49$ \\
+			\hline	upper-left & $19$ & $37$ & $40$ & $49$ & $15$ & $29$ & $49$ \\
+			\hline	lower-middle & $30$ & $36$ & $15$ & $29$ & $40$ & $49$ & $49$ \\
+			\hline	center & $245$ & $147$ & $40$ & $49$ & $40$ & $49$ & $49$ \\
+			\hline	upper-middle & $30$ & $36$ & $15$ & $29$ & $15$ & $30$ & $49$ \\
+			\hline	lower-right & $19$ & $37$ & $15$ & $30$ & $15$ & $29$ & $49$ \\
+			\hline	middle-right & $30$ & $37$ & $15$ & $29$ & $15$ & $30$ & $49$ \\
+			\hline	upper-right & $19$ & $37$ & $15$ & $30$ & $15$ & $29$ & $49$ \\
+			\hline
+		\end{tabular}\label{Tab:nouies2}
+	\end{table}
+	
+	Fig. \ref{figure:simul2} and Table \ref{Tab:simul2} shows the comparison of the sum of the utility function and the number of users obtaining more bandwidth in each simulation. We can see that in both comparisons CVXP performs better than HDR.
+	
+	\begin{figure}
+		\begin{center}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul2_utility.eps}
+				\caption{sum of utility function}
+				\label{figure:simul2_a}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul2_users.eps}
+				\caption{number of users}
+				\label{figure:simul2_b}
+			\end{subfigure}
+			\caption{Comparison of sum of utility function and number of users obtaining more bandwidth in SIMUL2.}
+			\label{figure:simul2}
+		\end{center}
+	\end{figure}
+	
+	\begin{table} \small
+		\centering \caption{Sum of utility function and number of users obtaining more bandwidth in SIMUL2.}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|c||c|c||c|c||c|c||c|c|} % m{5.38cm}
+			\hline
+			&\multicolumn{4}{|c||}{Sum of utility function} & \multicolumn {4}{|c|}{Number of users} \\
+			\hline & \multicolumn{2}{|c||}{CVXP} & \multicolumn{2}{|c||}{HDR} & \multicolumn{2}{|c||}{CVXP} & \multicolumn{2}{|c|}{HDR} \\
+			\hline	Simulation & AVG & STD & AVG & STD & AVG & STD & AVG & STD \\
+			\hline
+			\hline	2-1-1 & $229$ & $5$ & $224$ & $5$ & $61\%$ & $7\%$ & $32\%$ & $7\%$ \\
+			\hline	2-1-2 & $223$ & $4$ & $220$ & $4$ & $54\%$ & $7\%$ & $33\%$ & $6\%$ \\
+			\hline	2-2-1 & $125$ & $6$ & $105$ & $7$ & $65\%$ & $3\%$ & $32\%$ & $2\%$ \\
+			\hline	2-2-2 & $181$ & $6$ & $170$ & $7$ & $58\%$ & $3\%$ & $40\%$ & $3\%$ \\
+			\hline	2-3-1 & $67$ & $6$ & $31$ & $8$ & $55\%$ & $4\%$ & $43\%$ & $3\%$ \\
+			\hline	2-3-2 & $149$ & $6$ & $133$ & $7$ & $49\%$ & $5\%$ & $47\%$ & $4\%$ \\
+			\hline	2-4 & $192$ & $11$ & $188$ & $11$ & $53\%$ & $5\%$ & $39\%$ & $5\%$ \\
+			\hline
+		\end{tabular}\label{Tab:simul2}
+	\end{table}	
+	When we observe Fig. \ref{figure:simul2_a}, we can see the same trends as SIMUL1. First, when the hot spot is the center sub-square (the lower-left sub-square), the sum of the utility function (i.e., the total satisfaction) is the greatest (smallest). The reason is the same as SIMUL1 that users in the center sub-square have more choices of APs for AP association than users in the lower-left sub-square. CVXP also performs better when the hot spot is the center sub-square than the number of users in each sub-square is uniform. This is because our deployment of APs is uniform in the square, users near the margin of the square have less choice of APs for AP association.
+	
+	Second, the sum of the utility function in the moderately loaded hot spot in the middle-left or lower-left sub-square is also better than that in the heavily loaded hot spot in the middle-left or lower-left sub-square. It makes sense because APs in the moderately loaded hot spot may be associated with less users and obtain better the sum of the utility function.
+	
+	Fig. \ref{figure:simul2_b} shows CVXP makes more users obtaining more bandwidth than HDR in all hot spot and uniform simulations.
+	
+	The details of each simulation are shown in Appendix \ref{apendix:dos}.
+	%=========
+%\subsubsection{SIMUL2-1-1}
+%\subsubsection{SIMUL2-1-2}
+%\subsubsection{SIMUL2-2-1}
+%\subsubsection{SIMUL2-2-2}
+%\subsubsection{SIMUL2-3-1}
+%\subsubsection{SIMUL2-3-2}
+%\subsubsection{SIMUL2-4}
+
+%=========
+%=========
+\subsection{SIMUL3}
+	In SIMUL3, the number of users in the square is $666$. The number of users in each sub-square is shown in Table \ref{Tab:nouies3}. We will simulate as follows: 
+	\begin{itemize}
+		\item The hot spot is in the center, middle-left, and lower-left sub-square.
+		\item The number of users in each sub-square is the same.
+	\end{itemize}
+	
+	\begin{table} \small
+		\centering \caption{Number of users in each sub-square in SIMUL3}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|r||c||c||c||c||c||c||c|} % m{5.38cm}
+			\hline
+			&\multicolumn{7}{|c|}{Simulation} \\
+			\hline	sub-square & 3-1-1 & 3-1-2 & 3-2-1 & 3-2-2 & 3-3-1 & 3-3-2 & 3-4 \\
+			\hline
+			\hline	lower-left & $30$ & $56$ & $60$ & $74$ & $369$ & $222$ & $74$ \\
+			\hline	middle-left & $45$ & $56$ & $369$ & $222$ & $60$ & $74$ & $74$ \\
+			\hline	upper-left & $29$ & $56$ & $60$ & $74$ & $23$ & $44$ & $74$ \\
+			\hline	lower-middle & $45$ & $55$ & $24$ & $44$ & $60$ & $74$ & $74$ \\
+			\hline	center & $368$ & $222$ & $60$ & $74$ & $60$ & $74$ & $74$ \\
+			\hline	upper-middle & $45$ & $54$ & $24$ & $44$ & $24$ & $45$ & $74$ \\
+			\hline	lower-right & $29$ & $55$ & $23$ & $45$ & $23$ & $44$ & $74$ \\
+			\hline	middle-right & $45$ & $56$ & $23$ & $44$ & $24$ & $45$ & $74$ \\
+			\hline	upper-right & $30$ & $56$ & $23$ & $45$ & $23$ & $44$ & $74$ \\
+			\hline
+		\end{tabular}\label{Tab:nouies3}
+	\end{table}
+	
+	Fig. \ref{figure:simul3} and Table \ref{Tab:simul3} shows the comparison of the sum of the utility function and the number of users obtaining more bandwidth in each simulation. We can see that in both comparisons CVXP performs better than HDR.
+	
+	\begin{figure}
+		\begin{center}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul3_utility.eps}
+				\caption{sum of utility function}
+				\label{figure:simul3_a}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul3_users.eps}
+				\caption{number of users}
+				\label{figure:simul3_b}
+			\end{subfigure}
+			\caption{Comparison of sum of utility function and number of users obtaining more bandwidth in SIMUL3.}
+			\label{figure:simul3}
+		\end{center}
+	\end{figure}
+	
+	\begin{table} \small
+		\centering \caption{Sum of utility function and number of users obtaining more bandwidth in SIMUL3.}
+		\renewcommand\arraystretch{1.0}
+		\begin{tabular}{|c||c|c||c|c||c|c||c|c|} % m{5.38cm}
+			\hline
+			&\multicolumn{4}{|c||}{Sum of utility function} & \multicolumn {4}{|c|}{Number of users} \\
+			\hline & \multicolumn{2}{|c||}{CVXP} & \multicolumn{2}{|c||}{HDR} & \multicolumn{2}{|c||}{CVXP} & \multicolumn{2}{|c|}{HDR} \\
+			\hline	Simulation & AVG & STD & AVG & STD & AVG & STD & AVG & STD \\
+			\hline
+			\hline	3-1-1 & $228$ & $8$ & $220$ & $9$ & $62\%$ & $5\%$ & $33\%$ & $3\%$ \\
+			\hline	3-1-2 & $221$ & $7$ & $216$ & $7$ & $54\%$ & $5\%$ & $37\%$ & $4\%$ \\
+			\hline	3-2-1 & $79$ & $14$ & $48$ & $17$ & $64\%$ & $2\%$ & $34\%$ & $3\%$ \\
+			\hline	3-2-2 & $147$ & $13$ & $135$ & $14$ & $56\%$ & $3\%$ & $40\%$ & $2\%$ \\
+			\hline	3-3-1 & $-13$ & $14$ & $-66$ & $14$ & $53\%$ & $4\%$ & $45\%$ & $4\%$ \\
+			\hline	3-3-2 & $112$ & $14$ & $89$ & $14$ & $50\%$ & $4\%$ & $46\%$ & $3\%$ \\
+			\hline	4-4 & $172$ & $9$ & $167$ & $9$ & $55\%$ & $3\%$ & $39\%$ & $2\%$ \\
+			\hline
+		\end{tabular}\label{Tab:simul3}
+	\end{table}	
+	The same trends as SIMUL1 and SIMUL2 are shown in Fig. \ref{figure:simul3_a}. When the hot spot is the center sub-square (the lower-left sub-square), the sum of the utility function (i.e., the total satisfaction) is the greatest (smallest). The reason is the same as SIMUL1 and SIMUL2 that users in the center sub-square have more choices of APs for AP association than users in the lower-left sub-square. CVXP also performs better when the hot spot is the center sub-square than the distribution of users is uniform. This is because our deployment of APs is uniform in the square, users near the margin of the square have less choice of APs for AP association.
+	
+	The sum of the utility function in the moderately loaded hot spot in the middle-left or lower-left sub-square is also better than that in the heavily loaded hot spot in the middle-left or lower-left sub-square. It makes sense because APs in the moderately loaded hot spot may be associated with less users and obtain better the sum of the utility function.
+	
+	Fig. \ref{figure:simul3_b} shows CVXP makes more users obtaining more bandwidth than HDR in all hot spot and uniform simulations.
+	
+	The details of each simulation are shown in Appendix \ref{apendix:dos}.
+	%=========
+%\subsubsection{SIMUL3-1-1}
+%\subsubsection{SIMUL3-1-2}
+%\subsubsection{SIMUL3-2-1}
+%\subsubsection{SIMUL3-2-2}
+%\subsubsection{SIMUL3-3-1}
+%\subsubsection{SIMUL3-3-2}
+%\subsubsection{SIMUL3-4}
+
+%=========
+\subsection{Comparison of SIMUL1, 2, and 3}
+	Fig.\ref{figure:simul123} shows the comparison of SIMUL1, 2, and 3 in each hot spot simulation and uniform number of users simulation. In Fig.\ref{figure:simul123_a}, the hot spot is in the center sub-square. When the number of users increases, the sum of the utility function increases, too. In Fig.\ref{figure:simul123_b} and Fig.\ref{figure:simul123_c}, the hot spot is in the middle-left and lower-left sub-square. In the heavily loaded hot spot simulations, when the number of users increases, the sum of the utility function decreases. In the moderately loaded hot spot simulations, the maximum sum of the utility function appears when the number of users is $441$. In Fig.\ref{figure:simul123_d}, the number of users is uniform in each sub-square. The maximum sum of the utility function appears when the number of users is $441$, too. We can observe that when the number of users is $441$, these APs are overloaded.
+
+	\begin{figure}
+		\begin{center}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul_center.eps}
+				\caption{center sub-square}
+				\label{figure:simul123_a}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul_middleleft.eps}
+				\caption{middle-left sub-square}
+				\label{figure:simul123_b}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul_lowerleft.eps}
+				\caption{lower-left sub-square}
+				\label{figure:simul123_c}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\includegraphics[width=6cm]{fig/simul_uniform.eps}
+				\caption{uniform number}
+				\label{figure:simul123_d}
+			\end{subfigure}
+			\caption{Comparison of sum of utility function of SIMUL1, 2, and 3.}
+			\label{figure:simul123}
+		\end{center}
+	\end{figure}

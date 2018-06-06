@@ -1,0 +1,92 @@
+%
+\documentclass[a4paper, 12pt]{report}
+% packages
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{algorithm} 
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[toc]{appendix}
+% style
+\topmargin 0cm \oddsidemargin 0.5cm \headsep 1.5cm \headheight 0.5cm
+\textheight 21.5cm \textwidth 15.2cm \marginparwidth 0.5cm
+\marginparsep 0cm
+\floatsep 0.8cm     %頁之上端與下端圖表與圖表之間的間距
+\textfloatsep 0.8cm %頁之上端與下端圖表與文字之間的間距
+\intextsep 1.0cm    %指定為 h 的圖表與文字之間的間距
+% new command
+\newcommand{\doublespace}{\addtolength{\baselineskip}{.6\baselineskip}}
+
+% title and author
+\title{AP Association for Proportional Fairness in MU-MIMO Multi-rate WLANs}
+\author{YuShu Chen}
+%
+\begin{document}
+	\begin{titlepage}
+%		\maketitle
+		\begin{center}
+			%\vspace{2.5cm}
+			\Large{\bf{AP Association for Proportional Fairness in MU-MIMO Multi-rate WLANs\\}}
+			\vspace{3cm}
+			Department of Computer Science\\
+			National Tsing Hua University\\
+			\vspace{2cm}
+			%(Draft)\\
+			\vspace{4.5cm}
+			\parbox[t]{7cm}{
+				%實際寬度自行再調整
+				Advisor: Dr. Ming-Jer~Tsai\\
+				Student: Yu-Shu~Chen\\
+			} \\
+			\vspace{5cm}
+			July 2015\\
+		\end{center}
+	\end{titlepage}
+	\pagenumbering{roman}
+	\doublespace
+	\chapter*{Abstract}
+		\input{Abstract.tex}
+	% table of content
+	\addcontentsline{toc}{chapter}{Contents}
+	\tableofcontents
+	\cleardoublepage
+	
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\listoffigures
+	\cleardoublepage
+
+	\addcontentsline{toc}{chapter}{List of Tables}
+	\listoftables
+	\cleardoublepage
+		
+	\pagenumbering{arabic}
+	\chapter{Introduction and Related Work}
+		In this chapter, we introduce the AP association problem in addition to background knowledge and show the related work.
+		\input{Introduction.tex}
+		\input{Related_Work.tex}
+	\chapter{Bandwidth Allocation}
+		In this chapter, we describe how to allocate bandwidth for proportional fairness to each user associating with the same AP.
+		\input{Bandwidth_Allocation.tex}
+	\chapter{AP Association}
+		In this chapter, we describe the AP association problem AAPFM and propose an algorithm called CVXP to solve it. We will analysis CVXP and show the hardness of this problem.
+		\input{AP_Association.tex}
+		\input{AP_Association_Analysis.tex}
+		\input{AP_Association_Hardness.tex}
+	\chapter{Performance Evaluations}
+		In this chapter, we build a bit rate table for simulations and compare the result of our algorithms CVXP to a naive algorithm HDR in each simulation.
+		\input{Bit_Rate_Table.tex}
+%		\input{Evaluation_for_AP_Association.tex}
+		\input{Evaluation_for_AP_Association_2.tex}
+	\chapter{Conclusion}
+		\input{Conclusion.tex}
+%	\input{Bibliography.tex}
+	\bibliographystyle{IEEEtran}
+	\bibliography{references}
+	\begin{appendices}
+		\chapter{Details of Simulations}
+		\label{apendix:dos}
+		\input{Details_of_Simulations}
+	\end{appendices}
+\end{document}

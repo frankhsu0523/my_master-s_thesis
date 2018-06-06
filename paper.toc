@@ -1,0 +1,19 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{3}
+\contentsline {chapter}{\numberline {2}General Background Information}{5}
+\contentsline {section}{\numberline {2.1}Software-defined networking}{5}
+\contentsline {section}{\numberline {2.2}OpenFlow}{6}
+\contentsline {subsection}{\numberline {2.2.1}OpenFlow switch components}{7}
+\contentsline {section}{\numberline {2.3}GENI}{7}
+\contentsline {section}{\numberline {2.4}Open vSwitch}{9}
+\contentsline {section}{\numberline {2.5}Ryu controller}{9}
+\contentsline {chapter}{\numberline {3}System model}{11}
+\contentsline {section}{\numberline {3.1}GENI model}{11}
+\contentsline {chapter}{\numberline {4}Implementation of Routing Algorithm in GENI}{12}
+\contentsline {section}{\numberline {4.1}The reservation of compute resources for customized topology}{12}
+\contentsline {section}{\numberline {4.2}Offline algorithm}{14}
+\contentsline {subsection}{\numberline {4.2.1}create the network graph for the input of routing algorithm}{14}
+\contentsline {subsection}{\numberline {4.2.2}setting up the demands}{15}
+\contentsline {subsection}{\numberline {4.2.3}setting up the controller}{15}
+\contentsline {section}{\numberline {4.3}Online algorithm}{15}
+\contentsline {subsection}{\numberline {4.3.1}ryu controller}{15}
