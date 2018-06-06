@@ -1,4 +1,4 @@
-\select@language {english}
+\babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Introduction}{3}
 \contentsline {chapter}{\numberline {2}General Background Information}{5}
 \contentsline {section}{\numberline {2.1}Software-defined networking}{5}

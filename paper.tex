@@ -60,6 +60,7 @@
             \includegraphics[width=1.0\textwidth]{GENI-MAP.jpg}
       \end{figure}
      \section{Open vSwitch}
+     \qquad Open vSwitch is a open source, multi layer virtual switch implemented in software. It can be intergrated with hardware where it can act as as control plane. One example is it can handle OnpenFlow control plane in a hardware silicon. There are three mainly components in Open vSwitch: (a) Control Plane; (b) Kernel Mode; (c) Command line interface. 
      \section{Ryu controller}
      \qquad Ryu is a component-based SDN framework. Ryu is fully written in Python and provides software components with well defined API that make it easy for developers to create new management and control applications. Figures 2.3 shows the model of Ryu application. The data path thread will collect all the events from OpenFlow switch and dispatch the events to the event handler to process it. The programmer should define the event handler how to process the event. Figure 2.4 shows the status of ryu from the beginning till the end.  
      \begin{figure}
