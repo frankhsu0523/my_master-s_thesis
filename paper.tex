@@ -62,16 +62,45 @@
      \section{Open vSwitch}
      \qquad Open vSwitch is a open source, multi layer virtual switch implemented in software. It can be intergrated with hardware where it can act as as control plane. One example is it can handle OnpenFlow control plane in a hardware silicon. There are three mainly components in Open vSwitch: (a) Control Plane; (b) Kernel Mode; (c) Command line interface. 
      \section{Ryu controller}
-     \qquad Ryu is a component-based SDN framework. Ryu is fully written in Python and provides software components with well defined API that make it easy for developers to create new management and control applications. Figures 2.3 shows the model of Ryu application. The data path thread will collect all the events from OpenFlow switch and dispatch the events to the event handler to process it. The programmer should define the event handler how to process the event. Figure 2.4 shows the status of ryu from the beginning till the end.  
-     \begin{figure}
+     \qquad Ryu is a component-based SDN framework. Ryu is fully written in Python and provides software components with well defined API that make it easy for developers to create new management and control applications. 
+  \chapter{System model}
+     \section{Workflow of GENI}
+     \qquad Figure 3.1 shows the workflow of GENI. In the beginning, the GENI experimenters need to creat a slice. A GENI slice is: (a) The unit of isolation for experiments. Only experimenters who are members of a slice can make changes to experiments in that slice; (b) A container for resources used in an experiment.
+     \newline
+     \null\qquad For creating a specific topology, there are three methods to achieve that. Resouece Specification (RSpec) is a XML document in a prescribed format. Experimenters sned to  aggregates a request RSpec that describe the rosources they want.\
+     \newline
+     \null\qquad After finishing in reservation, experimenters could use GENI desktop tool to configure each node manually. Another method is to use the manifest RSpec, manifest RSpec describes the roesources the got. The manifest include the names and IP addresses and login accounts of compute resources. The experimenters could use SSH to login in the resources and configure the nodes.
+     \newline
+     \null\qquad When finished setting the nodes including controller, the experimenters use SSH to connect to each node and run the {\bf iPerf} to start the traffic. {\bf iPerf} is a software that could create the traffic in the networks.
+     \newline
+     \null\qquad Finally, the experiments could clone the mesaurment datas from each node and view the information they want.
+       \begin{figure}
+          \caption{The workflow of GENI.}
+          \centering
+          \includegraphics[width=1.0\textwidth]{geni_workflow.png}
+       \end{figure}
+    \section{Network in GENI}
+      \qquad Figure 3.2 shows the network in GENI. Each nodes is a virtual machine installed the Open vSwitch. The controller is installed the RYU controller.
+    \begin{figure}
+          \caption{The network in GENI.}
+          \centering
+          \includegraphics[width=1.0\textwidth]{GENI_network.png}
+       \end{figure}
+    \section{Ryu controller}
+    \qquad In Ryu controller, the controller will make connection to each switch by using OpenFlow protocol to send the hello message. After receving the reply message, the controller will want to get the information of switches. The controller will send the features request to the switch and wait the reply message. Then, the controller will send to flow mod message to the switch which setting the switch how to handle the packet. After that, the controller will start to listen the packet. When a packet is sent to the controller by the switch. The controller will create an event. Because the event is casue by a pcket being sent, so the evnet will be sent to the function which handle with the packet in controller.Figures 3.3 shows the model of Ryu application. The data path thread will collect all the events from OpenFlow switch and dispatch the events to the event handler to process it. The programmer should define the event handler how to process the event. Figure 3.4 shows the status of ryu from the beginning till the end. Figure 3.5 is a example code of how the controller handling the packet.
+     \begin{figure}[p]
           \caption{Ryu application programming model.}
           \centering
             \includegraphics[width=1.0\textwidth]{ryu_model.png}
           \caption{The four status in ryu controller}
           	\includegraphics[width=1.0\textwidth]{ryu_graph.png}
+          
       	\end{figure}
-  \chapter{System model}
-     \section{GENI model}
+     \begin{figure}[p]
+          \centering
+          \caption{The example of the function which handle the packet}
+          	\includegraphics[width=1.0\textwidth]{packet_in_handler.png}
+      	\end{figure}
   \chapter{Implementation of Routing Algorithm in GENI}
   	\section{The reservation of compute resources for customized topology}
 		\qquad In GENI, There are three methods to reserve the resources: (a) setting the topology manually; (b) choose existing topology; (c) import Resouce spectification (Rspec) documents. Figure 4.1 to Figure 4.3 show the three methdos to reserve the resources. In (a), you could just drag the components into the screen and create the topology you desire. In (b) choosing the existing topology that the geni offering. In (c) To use the Rspec documents, you could write a program to output the Rspec document by following the Rspec structure.
@@ -107,5 +136,11 @@
           \caption{The code of topology discovery in Ryu controller.}
             \includegraphics[width=1.0\textwidth]{ryu_discovery.png}
       	\end{figure}
+  \chapter{Case study}
+  \chapter{Experiment results}
+  \chapter{Summary}
+    \section{conclusion}
+    \section{future work}
+  \chapter{References}
      \end{large}
     \end{document}
