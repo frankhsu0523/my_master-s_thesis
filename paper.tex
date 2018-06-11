@@ -1,30 +1,29 @@
 
 \documentclass[a4paper,12pt]{report}
-
-    \usepackage[english]{babel}
-    \usepackage{graphicx}
-    \linespread{1.5}
-    \title{Implementation and Evaluation of Routing Algorithm in GENI Software-Defined Networking}
-    \author{Wei-Hen Hsu}
-    \date{\today}
-    \begin{document}
-    \begin{large}
-    \maketitle{}
-    \tableofcontents{}
-    \chapter{Introduction}
-    \qquad Software-defined networking (SDN) has received a lot of attention in recent years, 
-            several routing algorithms have been proposed by researchers. The environment that evaluates a 
-            routing algorithm is quite importmant.\par
-    \qquad Commonly, building up a SDN environment with real OpenFlow switches for evaluating the porformance
-            of routing algorithms is very persuasive. Unfortunately, a real OpenFlow switch is expensive. It's 
-            costly to build a small-scale netwrok with real OpenFlow switches.\par
-    \qquad Another tool for building the SDN environment is the network testbed. The network testbed is a 
-            platform to provide network researchers with a realistic environment for testing. In some network testbeds, they are supported by governmentsit and it's free for researchers to use the testbed. Compared with previous ways, it is more cost-effective for researchers to build the environment.\par
-    \qquad Therefore, in this thesis, we propsed a method to implement the routing algorithms in {\bf Global 
-            Environment for Network Innovations (GENI)} SDN testbed. The routing algorithms fall into the following two main categories: (a) online routing algorithm; (b) offline routing algorithm. In each catergory, we describe the process of creating a SDN on GENI and implementing the rouing algorithm on SDN. 
-    \chapter{General Background Information}
-        \section{Software-defined networking}
-        \qquad According to {\bf ONF(Open Networking Foundation)} definition of software-defined networking, SDN is 
+  \usepackage[english]{babel}
+  \usepackage{graphicx}
+  \linespread{1.5}
+  \title{Implementation and Evaluation of Routing Algorithm in GENI Software-Defined Networking}
+  \author{Wei-Hen Hsu}
+  \date{\today}
+  \begin{document}
+  \begin{large}
+  \maketitle{}
+  \tableofcontents{}
+  \chapter{Introduction}
+	    \qquad Software-defined networking (SDN) has received a lot of attention in recent years, 
+	            several routing algorithms have been proposed by researchers. The environment that evaluates a 
+	            routing algorithm is quite importmant.\par
+	    \qquad Commonly, building up a SDN environment with real OpenFlow switches for evaluating the porformance
+	            of routing algorithms is very persuasive. Unfortunately, a real OpenFlow switch is expensive. It's 
+	            costly to build a small-scale netwrok with real OpenFlow switches.\par
+	    \qquad Another tool for building the SDN environment is the network testbed. The network testbed is a 
+	            platform to provide network researchers with a realistic environment for testing. In some network testbeds, they are supported by governmentsit and it's free for researchers to use the testbed. Compared with previous ways, it is more cost-effective for researchers to build the environment.\par
+	    \qquad Therefore, in this thesis, we propsed a method to implement the routing algorithms in {\bf Global 
+	            Environment for Network Innovations (GENI)} SDN testbed. The routing algorithms fall into the following two main categories: (a) online routing algorithm; (b) offline routing algorithm. In each catergory, we describe the process of creating a SDN on GENI and implementing the rouing algorithm on SDN. 
+  \chapter{General Background Information}
+    \section{Software-defined networking}
+      \qquad According to {\bf ONF(Open Networking Foundation)} definition of software-defined networking, SDN is 
                 an architecture that is dynamic, manageable, cost-effective, and adaptable, making it ideal for the 
                 high-bandwidth, dynamic nature of today’s applications. In traditional network, each network device 
                 usually has its own control plane. The transport of the packet is processed by network device 
@@ -32,8 +31,8 @@
                 network device and implements it in sofware instead. The SDN enables the control plane to beccome 
                 directly programmable and the underlying infrastructure to be abstracted for applications and network 
                 services. The OpenFlow® protocol is a foundational element for building SDN solutions.
-        \section{OpenFlow}
-        \qquad OpenFlow is a communications protocol between SDN controller and OpenFlow switch that enables the SDN 
+    \section{OpenFlow}
+      \qquad OpenFlow is a communication protocol between SDN controller and OpenFlow switch that enables the SDN 
                 controller to direct interact with the forwarding plane of network devices such as switches and 
                 routers. Figure 2.1 shows the main components of an OpenFlow switch.
         \begin{figure}[hb]
@@ -63,7 +62,7 @@
      \qquad Open vSwitch is a open source, multi layer virtual switch implemented in software. It can be intergrated with hardware where it can act as as control plane. One example is it can handle OnpenFlow control plane in a hardware silicon. There are three mainly components in Open vSwitch: (a) Control Plane; (b) Kernel Mode; (c) Command line interface. 
      \section{Ryu controller}
      \qquad Ryu is a component-based SDN framework. Ryu is fully written in Python and provides software components with well defined API that make it easy for developers to create new management and control applications. 
-  \chapter{System model}
+     \chapter{System model}
      \section{Workflow of GENI}
      \qquad Figure 3.1 shows the workflow of GENI. In the beginning, the GENI experimenters need to creat a slice. A GENI slice is: (a) The unit of isolation for experiments. Only experimenters who are members of a slice can make changes to experiments in that slice; (b) A container for resources used in an experiment.
      \newline
@@ -79,68 +78,72 @@
           \centering
           \includegraphics[width=1.0\textwidth]{geni_workflow.png}
        \end{figure}
-    \section{Network in GENI}
-      \qquad Figure 3.2 shows the network in GENI. Each nodes is a virtual machine installed the Open vSwitch. The controller is installed the RYU controller.
-    \begin{figure}
-          \caption{The network in GENI.}
-          \centering
-          \includegraphics[width=1.0\textwidth]{GENI_network.png}
-       \end{figure}
-    \section{Ryu controller}
-    \qquad In Ryu controller, the controller will make connection to each switch by using OpenFlow protocol to send the hello message. After receving the reply message, the controller will want to get the information of switches. The controller will send the features request to the switch and wait the reply message. Then, the controller will send to flow mod message to the switch which setting the switch how to handle the packet. After that, the controller will start to listen the packet. When a packet is sent to the controller by the switch. The controller will create an event. Because the event is casue by a pcket being sent, so the evnet will be sent to the function which handle with the packet in controller.Figures 3.3 shows the model of Ryu application. The data path thread will collect all the events from OpenFlow switch and dispatch the events to the event handler to process it. The programmer should define the event handler how to process the event. Figure 3.4 shows the status of ryu from the beginning till the end. Figure 3.5 is a example code of how the controller handling the packet.
-     \begin{figure}[p]
-          \caption{Ryu application programming model.}
-          \centering
-            \includegraphics[width=1.0\textwidth]{ryu_model.png}
-          \caption{The four status in ryu controller}
-          	\includegraphics[width=1.0\textwidth]{ryu_graph.png}
-          
-      	\end{figure}
-     \begin{figure}[p]
-          \centering
-          \caption{The example of the function which handle the packet}
-          	\includegraphics[width=1.0\textwidth]{packet_in_handler.png}
-      	\end{figure}
+	    \section{Network in GENI}
+	      \qquad Figure 3.2 shows the network in GENI. Each nodes is a virtual machine installed the Open vSwitch. The controller is installed the RYU controller.
+	    \begin{figure}
+	          \caption{The network in GENI.}
+	          \centering
+	          \includegraphics[width=1.0\textwidth]{GENI_network.png}
+	       \end{figure}
+	    \section{Ryu controller}
+	    \qquad In Ryu controller, the controller will make connection to each switch by using OpenFlow protocol to send the hello message. After receving the reply message, the controller will want to get the information of switches. The controller will send the features request to the switch and wait the reply message. Then, the controller will send to flow mod message to the switch which setting the switch how to handle the packet. After that, the controller will start to listen the packet. When a packet is sent to the controller by the switch. The controller will create an event. Because the event is casue by a pcket being sent, so the evnet will be sent to the function which handle with the packet in controller.Figures 3.3 shows the model of Ryu application. The data path thread will collect all the events from OpenFlow switch and dispatch the events to the event handler to process it. The programmer should define the event handler how to process the event. Figure 3.4 shows the status of ryu from the beginning till the end. Figure 3.5 is a example code of how the controller handling the packet.
+	     \begin{figure}[p]
+	          \caption{Ryu application programming model.}
+	          \centering
+	            \includegraphics[width=1.0\textwidth]{ryu_model.png}
+	          \caption{The four status in ryu controller}
+	          	\includegraphics[width=1.0\textwidth]{ryu_graph.png}
+	          
+	      	\end{figure}
+	     \begin{figure}[p]
+	          \centering
+	          \caption{The example of the function which handle the packet}
+	          	\includegraphics[width=1.0\textwidth]{packet_in_handler.png}
+	      	\end{figure}
   \chapter{Implementation of Routing Algorithm in GENI}
-  	\section{The reservation of compute resources for customized topology}
-		\qquad In GENI, There are three methods to reserve the resources: (a) setting the topology manually; (b) choose existing topology; (c) import Resouce spectification (Rspec) documents. Figure 4.1 to Figure 4.3 show the three methdos to reserve the resources. In (a), you could just drag the components into the screen and create the topology you desire. In (b) choosing the existing topology that the geni offering. In (c) To use the Rspec documents, you could write a program to output the Rspec document by following the Rspec structure.
-		\begin{figure}
-          \caption{(a) Setting the topology manually.}
-          \centering
-            \includegraphics[width=1.0\textwidth]{geni_manual.png}
-          \caption{(b) Choose existing topology.}
-            \includegraphics[width=1.0\textwidth]{choose_existing.png}
-          \caption{(c) Import Resouce spectification (Rspec) documents.}
-            \includegraphics[width=1.0\textwidth]{rspec_format.png}
-      	\end{figure}
-   \section{Offline algorithm}
-     \subsection{create the network graph for the input of routing algorithm}
-     \qquad After reserve the resources, copy the network structure document from GENI online website. Fugure 4.4 shows the the network structure document. The network structure document contains the information of nodes and links. Using this document to create the netowrk graph for the input of the routing algorithm.
-     \begin{figure}
-        \caption{The network structure in GENI}
-        \centering
-          \includegraphics[width=1.0\textwidth]{Raw_resource.png}
-     \end{figure}
-     \subsection{setting up the demands}
-     \qquad After the routing algorithm compute the pathes of the demands. In order to let the Open vSwitch to identify each demands, we use ip of source, ip of destination, port of destination to identify each demands.
- For each nodes, we create a script to run the demands with given information. 
- 	\subsection{setting up the controller}
- 	\qquad For controller, we create a dictionary for it. Every time when a node asks the controller how to process the demands, controller could use ip of source, ip of destination, port of destination as a key to find the path of the demand then send the OpenFlow message to the switch for adding the flow into the flow table. 
- 	\section{Online algorithm}
- 		\subsection{ryu controller}
- 		\qquad In ryu controller, we need to implement a topology discovery which the routing algorithm could use. Figure 4.5 is the package which the Ryu controller need to import. Figure 4.6 is the code to discover topology.
- 		\begin{figure}
-          \caption{Ryu controller import package for topology discovery.}
-          \centering
-            \includegraphics[width=1.0\textwidth]{ryu_import.png}
-          \caption{The code of topology discovery in Ryu controller.}
-            \includegraphics[width=1.0\textwidth]{ryu_discovery.png}
-      	\end{figure}
+	  	\section{The reservation of compute resources for customized topology}
+			\qquad In GENI, There are three methods to reserve the resources: (a) setting the topology manually; (b) choose existing topology; (c) import Resouce spectification (Rspec) documents. Figure 4.1 to Figure 4.3 show the three methdos to reserve the resources. In (a), you could just drag the components into the screen and create the topology you desire. In (b) choosing the existing topology that the geni offering. In (c) To use the Rspec documents, you could write a program to output the Rspec document by following the Rspec structure.
+			\begin{figure}
+	          \caption{(a) Setting the topology manually.}
+	          \centering
+	            \includegraphics[width=1.0\textwidth]{geni_manual.png}
+	          \caption{(b) Choose existing topology.}
+	            \includegraphics[width=1.0\textwidth]{choose_existing.png}
+	          \caption{(c) Import Resouce spectification (Rspec) documents.}
+	            \includegraphics[width=1.0\textwidth]{rspec_format.png}
+	      	\end{figure}
+	   \section{Offline algorithm}
+	     \subsection{create the network graph for the input of routing algorithm}
+	     \qquad After reserving the resources, copy the network structure document from GENI online website. Fugure 4.4 shows the the network structure document. The network structure document contains the information of nodes and links. Using this document to create the netowrk graph for the input of the routing algorithm.
+	     \begin{figure}
+	        \caption{The network structure in GENI}
+	        \centering
+	          \includegraphics[width=1.0\textwidth]{Raw_resource.png}
+	     \end{figure}
+	     \subsection{setting up the demands}
+	     \qquad After the routing algorithm compute the pathes of the demands. In order to let the Open vSwitch to identify each demands, we use ip of source, ip of destination, port of destination to identify each demands.
+	 For each nodes, we create a script to run the demands with given information. 
+	 	\subsection{setting up the controller}
+	 	\qquad For controller, we create a dictionary for it. Every time when a node asks the controller how to process the demands, controller could use ip of source, ip of destination, port of destination as a key to find the path of the demand then send the OpenFlow message to the switch for adding the flow into the flow table. 
+	 	\section{Online algorithm}
+	 		\subsection{ryu controller}
+	 		\qquad In ryu controller, we need to implement a topology discovery which the routing algorithm could use. Figure 4.5 is the package which the Ryu controller need to import. Figure 4.6 is the code to discover topology. After the controller gets the topology, every time when a packet sends to the controller, we parse the information of the packet. Getting its ip source, ip destination, destination port as the demand's key. Input this key and topology into the algorithm then get the path output by controller. Sending the messages to the switch to add the flow in the flow table.
+	 		\begin{figure}
+	          \caption{Ryu controller import package for topology discovery.}
+	          \centering
+	            \includegraphics[width=1.0\textwidth]{ryu_import.png}
+	          \caption{The code of topology discovery in Ryu controller.}
+	            \includegraphics[width=1.0\textwidth]{ryu_discovery.png}
+	      	\end{figure}
   \chapter{Case study}
+  \section{Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks}
+    \qquad In this section, we study the Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks and implement four algorithms in GENI. Because the MPLS is a per-flow routing, the number of flow paths through a node (switch) needs to be bounded due to the limited ternary content addressable memory (TCAM). Therefore, the problem term to be bounded path-degree maximum concurrent flow problem (BPMCF)
+    \subsection{Problem definition}
+    \qquad Given a network topology G = (V, E) with link link capacity (bandwidth capacity) 
   \chapter{Experiment results}
   \chapter{Summary}
     \section{conclusion}
     \section{future work}
   \chapter{References}
-     \end{large}
-    \end{document}
+  \end{large}
+  \end{document}
