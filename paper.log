@@ -1,72 +1,70 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.5.31)  11 JUN 2018 21:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  12 JUN 2018 00:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
-\c@part=\count79
-\c@chapter=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2016/02/24 3.9q The Babel package
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2012/08/20 v3.3p English support from the babel system
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2016/02/24 3.9q Babel common definitions
-\babel@savecnt=\count88
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count89
 \U@D=\dimen103
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count90
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count89
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
@@ -86,64 +84,73 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+
+(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count90
+\scratchcounter=\count91
 \scratchdimen=\dimen106
 \scratchbox=\box26
-\nofMPsegments=\count91
-\nofMParguments=\count92
+\nofMPsegments=\count92
+\nofMParguments=\count93
 \everyMPshowfont=\toks15
-\MPscratchCnt=\count93
+\MPscratchCnt=\count94
 \MPscratchDim=\dimen107
-\MPnumerator=\count94
-\makeMPintoPDFobject=\count95
+\MPnumerator=\count95
+\makeMPintoPDFobject=\count96
 \everyMPtoPDFconversion=\toks16
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
+(grfext)             \AppendGraphicsExtensions on input line 456.
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
@@ -154,7 +161,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./paper.toc
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./paper.toc
 Overfull \hbox (14.35176pt too wide) in paragraph at lines 15--15
  [][] []\OT1/cmr/m/n/14.4 The reser-va-tion of com-pute re-sources for cus-tomi
 zed 
@@ -162,21 +170,22 @@ zed
 
 [1
 
-] [2])
+])
 \tf@toc=\write3
 \openout3 = `paper.toc'.
 
- [3]
+ [2] [3]
 Chapter 1.
 [4
 
 ] [5]
 Chapter 2.
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ¬ in font cmr12!
-Missing character: There is no Æ in font cmr12!
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
 
 Overfull \hbox (1.11346pt too wide) in paragraph at lines 25--33
 \OT1/cmr/m/n/14.4 that is dy-namic, man-age-able, cost-effective, and adapt-abl
@@ -185,10 +194,11 @@ e, mak-
 
 [6
 
-] <OpenFlow.png, id=28, 360.8682pt x 415.7934pt>
+]
+<OpenFlow.png, id=28, 360.8682pt x 415.7934pt>
 File: OpenFlow.png Graphic file (type png)
- <use OpenFlow.png>
-Package pdftex.def Info: OpenFlow.png used on input line 40.
+<use OpenFlow.png>
+Package pdftex.def Info: OpenFlow.png  used on input line 40.
 (pdftex.def)             Requested size: 195.0pt x 224.6837pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 46.
@@ -196,18 +206,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 46.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 46.
- [7 <./OpenFlow.png>] <GENI-MAP.jpg, id=34, 722.7pt x 542.025pt>
+ [7 <./OpenFlow.png>]
+<GENI-MAP.jpg, id=36, 722.7pt x 542.025pt>
 File: GENI-MAP.jpg Graphic file (type jpg)
- <use GENI-MAP.jpg>
-Package pdftex.def Info: GENI-MAP.jpg used on input line 58.
+<use GENI-MAP.jpg>
+Package pdftex.def Info: GENI-MAP.jpg  used on input line 58.
 (pdftex.def)             Requested size: 390.0pt x 292.4989pt.
-
-[8] [9 <./GENI-MAP.jpg>] [10]
+ [8] [9 <./GENI-MAP.jpg>] [10]
 Chapter 3.
-<geni_workflow.png, id=44, 945.5325pt x 1081.03876pt>
+<geni_workflow.png, id=46, 945.5325pt x 1081.03876pt>
 File: geni_workflow.png Graphic file (type png)
- <use geni_workflow.png>
-Package pdftex.def Info: geni_workflow.png used on input line 78.
+<use geni_workflow.png>
+Package pdftex.def Info: geni_workflow.png  used on input line 78.
 (pdftex.def)             Requested size: 390.0pt x 445.901pt.
 
 Overfull \hbox (1.78023pt too wide) in paragraph at lines 66--80
@@ -217,113 +227,101 @@ d use GENI
 
 [11
 
-] <GENI_network.png, id=48, 1041.8925pt x 729.72626pt>
+]
+<GENI_network.png, id=50, 1041.8925pt x 729.72626pt>
 File: GENI_network.png Graphic file (type png)
-
 <use GENI_network.png>
-Package pdftex.def Info: GENI_network.png used on input line 85.
+Package pdftex.def Info: GENI_network.png  used on input line 85.
 (pdftex.def)             Requested size: 390.0pt x 273.14561pt.
- <ryu_model.png, id=49, 809.0225pt x 482.80376pt>
+<ryu_model.png, id=51, 809.0225pt x 482.80376pt>
 File: ryu_model.png Graphic file (type png)
-
 <use ryu_model.png>
-Package pdftex.def Info: ryu_model.png used on input line 92.
+Package pdftex.def Info: ryu_model.png  used on input line 92.
 (pdftex.def)             Requested size: 390.0pt x 232.74507pt.
- <ryu_graph.png, id=50, 878.28125pt x 753.81625pt>
+<ryu_graph.png, id=52, 878.28125pt x 753.81625pt>
 File: ryu_graph.png Graphic file (type png)
-
 <use ryu_graph.png>
-Package pdftex.def Info: ryu_graph.png used on input line 94.
+Package pdftex.def Info: ryu_graph.png  used on input line 94.
 (pdftex.def)             Requested size: 390.0pt x 334.73979pt.
 
 
 LaTeX Warning: Float too large for page by 32.2348pt on input line 96.
 
-<packet_in_handler.png, id=51, 606.265pt x 624.3325pt>
+<packet_in_handler.png, id=53, 606.265pt x 624.3325pt>
 File: packet_in_handler.png Graphic file (type png)
-
 <use packet_in_handler.png>
-Package pdftex.def Info: packet_in_handler.png used on input line 100.
+Package pdftex.def Info: packet_in_handler.png  used on input line 100.
 (pdftex.def)             Requested size: 390.0pt x 401.62917pt.
- [12] [13 <./geni_workflow.png>] [14 <./GENI_network.png>] [15] [16 <./ryu_mode
-l.png> <./ryu_graph.png>] [17 <./packet_in_handler.png>]
+[12] [13 <./geni_workflow.png>] [14 <./GENI_network.png>] [15] [16 <./ryu_model
+.png> <./ryu_graph.png>] [17 <./packet_in_handler.png>]
 Chapter 4.
-<geni_manual.png, id=75, 1926.19624pt x 793.96625pt>
+<geni_manual.png, id=77, 1926.19624pt x 793.96625pt>
 File: geni_manual.png Graphic file (type png)
- <use geni_manual.png>
-Package pdftex.def Info: geni_manual.png used on input line 108.
+<use geni_manual.png>
+Package pdftex.def Info: geni_manual.png  used on input line 108.
 (pdftex.def)             Requested size: 390.0pt x 160.75305pt.
-
-<choose_existing.png, id=76, 1926.19624pt x 628.3475pt>
+<choose_existing.png, id=78, 1926.19624pt x 628.3475pt>
 File: choose_existing.png Graphic file (type png)
-
 <use choose_existing.png>
-Package pdftex.def Info: choose_existing.png used on input line 110.
+Package pdftex.def Info: choose_existing.png  used on input line 110.
 (pdftex.def)             Requested size: 390.0pt x 127.22049pt.
- <rspec_format.png, id=77, 779.91376pt x 899.36pt>
+<rspec_format.png, id=79, 779.91376pt x 899.36pt>
 File: rspec_format.png Graphic file (type png)
-
 <use rspec_format.png>
-Package pdftex.def Info: rspec_format.png used on input line 112.
+Package pdftex.def Info: rspec_format.png  used on input line 112.
 (pdftex.def)             Requested size: 390.0pt x 449.72006pt.
-
 
 LaTeX Warning: Float too large for page by 240.1936pt on input line 113.
 
-<Raw_resource.png, id=78, 1349.04pt x 938.50626pt>
+<Raw_resource.png, id=80, 1349.04pt x 938.50626pt>
 File: Raw_resource.png Graphic file (type png)
- <use Raw_resource.png>
-Package pdftex.def Info: Raw_resource.png used on input line 120.
+<use Raw_resource.png>
+Package pdftex.def Info: Raw_resource.png  used on input line 120.
 (pdftex.def)             Requested size: 390.0pt x 271.31494pt.
-
 [18
 
 ] [19 <./geni_manual.png> <./choose_existing.png> <./rspec_format.png>]
-[20 <./Raw_resource.png>] <ryu_import.png, id=93, 450.68375pt x 56.21pt>
+[20 <./Raw_resource.png>]
+<ryu_import.png, id=95, 450.68375pt x 56.21pt>
 File: ryu_import.png Graphic file (type png)
-
 <use ryu_import.png>
-Package pdftex.def Info: ryu_import.png used on input line 133.
+Package pdftex.def Info: ryu_import.png  used on input line 133.
 (pdftex.def)             Requested size: 390.0pt x 48.64412pt.
- <ryu_discovery.png, id=94, 607.26875pt x 153.57375pt>
+<ryu_discovery.png, id=96, 607.26875pt x 153.57375pt>
 File: ryu_discovery.png Graphic file (type png)
-
 <use ryu_discovery.png>
-Package pdftex.def Info: ryu_discovery.png used on input line 135.
+Package pdftex.def Info: ryu_discovery.png  used on input line 135.
 (pdftex.def)             Requested size: 390.0pt x 98.62898pt.
  [21] [22 <./ryu_import.png> <./ryu_discovery.png>]
 Chapter 5.
-<it_program.png, id=103, 665.48625pt x 495.8525pt>
+<it_program.png, id=105, 665.48625pt x 495.8525pt>
 File: it_program.png Graphic file (type png)
- <use it_program.png>
-Package pdftex.def Info: it_program.png used on input line 145.
+<use it_program.png>
+Package pdftex.def Info: it_program.png  used on input line 145.
 (pdftex.def)             Requested size: 390.0pt x 290.59082pt.
-
 [23
 
-] [24] <ryu_controller_parse.png, id=115, 998.73125pt x 616.3025pt>
+] [24]
+<ryu_controller_parse.png, id=115, 998.73125pt x 616.3025pt>
 File: ryu_controller_parse.png Graphic file (type png)
-
 <use ryu_controller_parse.png>
-Package pdftex.def Info: ryu_controller_parse.png used on input line 155.
+Package pdftex.def Info: ryu_controller_parse.png  used on input line 155.
 (pdftex.def)             Requested size: 390.0pt x 240.65793pt.
  [25 <./it_program.png>]
 <openflow1_3.png, id=120, 435.6275pt x 20.075pt>
 File: openflow1_3.png Graphic file (type png)
- <use openflow1_3.png>
-Package pdftex.def Info: openflow1_3.png used on input line 162.
+<use openflow1_3.png>
+Package pdftex.def Info: openflow1_3.png  used on input line 162.
 (pdftex.def)             Requested size: 390.0pt x 17.97235pt.
-
 <flow_table.png, id=121, 567.11874pt x 34.1275pt>
 File: flow_table.png Graphic file (type png)
- <use flow_table.png>
-Package pdftex.def Info: flow_table.png used on input line 164.
+<use flow_table.png>
+Package pdftex.def Info: flow_table.png  used on input line 164.
 (pdftex.def)             Requested size: 390.0pt x 23.46986pt.
-
 <iperf.png, id=122, 404.51125pt x 83.31125pt>
 File: iperf.png Graphic file (type png)
- <use iperf.png>
-Package pdftex.def Info: iperf.png used on input line 167.
+<use iperf.png>
+Package pdftex.def Info: iperf.png  used on input line 167.
 (pdftex.def)             Requested size: 390.0pt x 80.32365pt.
 
 Overfull \hbox (2.58035pt too wide) in paragraph at lines 158--169
@@ -334,17 +332,11 @@ Overfull \hbox (2.58035pt too wide) in paragraph at lines 158--169
 [26] [27 <./ryu_controller_parse.png> <./openflow1_3.png> <./flow_table.png> <.
 /iperf.png>]
 Chapter 6.
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
 Package epstopdf Info: Source file: <lambda_legend.eps>
-(epstopdf)                    date: 2018-05-27 21:11:54
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 114102 bytes
 (epstopdf)             Output file: <lambda_legend-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-11 17:59:06
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 5676 bytes
 (epstopdf)             Command: <repstopdf --outfile=lambda_legend-eps-converte
 d-to.pdf lambda_legend.eps>
@@ -352,56 +344,54 @@ d-to.pdf lambda_legend.eps>
 Package epstopdf Info: Output file is already uptodate.
 <lambda_legend-eps-converted-to.pdf, id=133, 361.35pt x 50.1875pt>
 File: lambda_legend-eps-converted-to.pdf Graphic file (type pdf)
-
 <use lambda_legend-eps-converted-to.pdf>
-Package pdftex.def Info: lambda_legend-eps-converted-to.pdf used on input line 
-177.
+Package pdftex.def Info: lambda_legend-eps-converted-to.pdf  used on input line
+ 177.
 (pdftex.def)             Requested size: 390.0pt x 54.1672pt.
 Package epstopdf Info: Source file: <abilene_geni_lambda_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:52:30
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 118885 bytes
 (epstopdf)             Output file: <abilene_geni_lambda_e05-eps-converted-to.p
 df>
-(epstopdf)                    date: 2018-06-11 17:35:24
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 8956 bytes
 (epstopdf)             Command: <repstopdf --outfile=abilene_geni_lambda_e05-ep
 s-converted-to.pdf abilene_geni_lambda_e05.eps>
 (epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
-
 <abilene_geni_lambda_e05-eps-converted-to.pdf, id=134, 252.945pt x 163.61125pt>
+
 File: abilene_geni_lambda_e05-eps-converted-to.pdf Graphic file (type pdf)
 <use abilene_geni_lambda_e05-eps-converted-to.pdf>
-Package pdftex.def Info: abilene_geni_lambda_e05-eps-converted-to.pdf used on i
-nput line 178.
+Package pdftex.def Info: abilene_geni_lambda_e05-eps-converted-to.pdf  used on 
+input line 178.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
 Package epstopdf Info: Source file: <newyork_geni_lambda_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:52:30
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 118457 bytes
 (epstopdf)             Output file: <newyork_geni_lambda_e05-eps-converted-to.p
 df>
-(epstopdf)                    date: 2018-06-11 17:37:03
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 8972 bytes
 (epstopdf)             Command: <repstopdf --outfile=newyork_geni_lambda_e05-ep
 s-converted-to.pdf newyork_geni_lambda_e05.eps>
 (epstopdf)             \includegraphics on input line 179.
 Package epstopdf Info: Output file is already uptodate.
-
 <newyork_geni_lambda_e05-eps-converted-to.pdf, id=135, 252.945pt x 163.61125pt>
+
 File: newyork_geni_lambda_e05-eps-converted-to.pdf Graphic file (type pdf)
 <use newyork_geni_lambda_e05-eps-converted-to.pdf>
-Package pdftex.def Info: newyork_geni_lambda_e05-eps-converted-to.pdf used on i
-nput line 179.
+Package pdftex.def Info: newyork_geni_lambda_e05-eps-converted-to.pdf  used on 
+input line 179.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
-
 
 LaTeX Warning: Float too large for page by 9.78384pt on input line 180.
 
 Package epstopdf Info: Source file: <lambda_legend.eps>
-(epstopdf)                    date: 2018-05-27 21:11:54
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 114102 bytes
 (epstopdf)             Output file: <lambda_legend-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-11 17:59:06
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 5676 bytes
 (epstopdf)             Command: <repstopdf --outfile=lambda_legend-eps-converte
 d-to.pdf lambda_legend.eps>
@@ -409,55 +399,52 @@ d-to.pdf lambda_legend.eps>
 Package epstopdf Info: Output file is already uptodate.
 File: lambda_legend-eps-converted-to.pdf Graphic file (type pdf)
 <use lambda_legend-eps-converted-to.pdf>
-Package pdftex.def Info: lambda_legend-eps-converted-to.pdf used on input line 
-184.
+Package pdftex.def Info: lambda_legend-eps-converted-to.pdf  used on input line
+ 184.
 (pdftex.def)             Requested size: 390.0pt x 54.1672pt.
 Package epstopdf Info: Source file: <polska_geni_lambda_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:52:30
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 119119 bytes
 (epstopdf)             Output file: <polska_geni_lambda_e05-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2018-06-11 17:37:03
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9118 bytes
 (epstopdf)             Command: <repstopdf --outfile=polska_geni_lambda_e05-eps
 -converted-to.pdf polska_geni_lambda_e05.eps>
 (epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
-
 <polska_geni_lambda_e05-eps-converted-to.pdf, id=136, 252.945pt x 163.61125pt>
 File: polska_geni_lambda_e05-eps-converted-to.pdf Graphic file (type pdf)
-
 <use polska_geni_lambda_e05-eps-converted-to.pdf>
-Package pdftex.def Info: polska_geni_lambda_e05-eps-converted-to.pdf used on in
-put line 185.
+Package pdftex.def Info: polska_geni_lambda_e05-eps-converted-to.pdf  used on i
+nput line 185.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
 Package epstopdf Info: Source file: <di-yuan_geni_lambda_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:52:30
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 119579 bytes
 (epstopdf)             Output file: <di-yuan_geni_lambda_e05-eps-converted-to.p
 df>
-(epstopdf)                    date: 2018-06-11 17:35:24
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9008 bytes
 (epstopdf)             Command: <repstopdf --outfile=di-yuan_geni_lambda_e05-ep
 s-converted-to.pdf di-yuan_geni_lambda_e05.eps>
 (epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
-
 <di-yuan_geni_lambda_e05-eps-converted-to.pdf, id=137, 252.945pt x 163.61125pt>
+
 File: di-yuan_geni_lambda_e05-eps-converted-to.pdf Graphic file (type pdf)
 <use di-yuan_geni_lambda_e05-eps-converted-to.pdf>
-Package pdftex.def Info: di-yuan_geni_lambda_e05-eps-converted-to.pdf used on i
-nput line 186.
+Package pdftex.def Info: di-yuan_geni_lambda_e05-eps-converted-to.pdf  used on 
+input line 186.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
-
 
 LaTeX Warning: Float too large for page by 9.78384pt on input line 187.
 
 Package epstopdf Info: Source file: <lambda_legend.eps>
-(epstopdf)                    date: 2018-05-27 21:11:54
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 114102 bytes
 (epstopdf)             Output file: <lambda_legend-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-11 17:59:06
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 5676 bytes
 (epstopdf)             Command: <repstopdf --outfile=lambda_legend-eps-converte
 d-to.pdf lambda_legend.eps>
@@ -465,55 +452,51 @@ d-to.pdf lambda_legend.eps>
 Package epstopdf Info: Output file is already uptodate.
 File: lambda_legend-eps-converted-to.pdf Graphic file (type pdf)
 <use lambda_legend-eps-converted-to.pdf>
-Package pdftex.def Info: lambda_legend-eps-converted-to.pdf used on input line 
-191.
+Package pdftex.def Info: lambda_legend-eps-converted-to.pdf  used on input line
+ 191.
 (pdftex.def)             Requested size: 390.0pt x 54.1672pt.
 Package epstopdf Info: Source file: <nobel-us_geni_lambda_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:52:30
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 118678 bytes
 (epstopdf)             Output file: <nobel-us_geni_lambda_e05-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2018-06-11 17:37:04
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9288 bytes
 (epstopdf)             Command: <repstopdf --outfile=nobel-us_geni_lambda_e05-e
 ps-converted-to.pdf nobel-us_geni_lambda_e05.eps>
 (epstopdf)             \includegraphics on input line 192.
 Package epstopdf Info: Output file is already uptodate.
-
 <nobel-us_geni_lambda_e05-eps-converted-to.pdf, id=138, 252.945pt x 163.61125pt
 >
 File: nobel-us_geni_lambda_e05-eps-converted-to.pdf Graphic file (type pdf)
- <use nobel-us_geni_lambda_e05-eps-converted-to.pdf>
-Package pdftex.def Info: nobel-us_geni_lambda_e05-eps-converted-to.pdf used on 
-input line 192.
+<use nobel-us_geni_lambda_e05-eps-converted-to.pdf>
+Package pdftex.def Info: nobel-us_geni_lambda_e05-eps-converted-to.pdf  used on
+ input line 192.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
 Package epstopdf Info: Source file: <pdh_geni_lambda_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:52:30
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 119592 bytes
 (epstopdf)             Output file: <pdh_geni_lambda_e05-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-11 17:37:04
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 8897 bytes
 (epstopdf)             Command: <repstopdf --outfile=pdh_geni_lambda_e05-eps-co
 nverted-to.pdf pdh_geni_lambda_e05.eps>
 (epstopdf)             \includegraphics on input line 193.
 Package epstopdf Info: Output file is already uptodate.
-
 <pdh_geni_lambda_e05-eps-converted-to.pdf, id=139, 252.945pt x 163.61125pt>
 File: pdh_geni_lambda_e05-eps-converted-to.pdf Graphic file (type pdf)
-
 <use pdh_geni_lambda_e05-eps-converted-to.pdf>
-Package pdftex.def Info: pdh_geni_lambda_e05-eps-converted-to.pdf used on input
- line 193.
+Package pdftex.def Info: pdh_geni_lambda_e05-eps-converted-to.pdf  used on inpu
+t line 193.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
-
 
 LaTeX Warning: Float too large for page by 9.78384pt on input line 194.
 
 Package epstopdf Info: Source file: <lambda_legend.eps>
-(epstopdf)                    date: 2018-05-27 21:11:54
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 114102 bytes
 (epstopdf)             Output file: <lambda_legend-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-11 17:59:06
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 5676 bytes
 (epstopdf)             Command: <repstopdf --outfile=lambda_legend-eps-converte
 d-to.pdf lambda_legend.eps>
@@ -521,56 +504,53 @@ d-to.pdf lambda_legend.eps>
 Package epstopdf Info: Output file is already uptodate.
 File: lambda_legend-eps-converted-to.pdf Graphic file (type pdf)
 <use lambda_legend-eps-converted-to.pdf>
-Package pdftex.def Info: lambda_legend-eps-converted-to.pdf used on input line 
-201.
+Package pdftex.def Info: lambda_legend-eps-converted-to.pdf  used on input line
+ 201.
 (pdftex.def)             Requested size: 390.0pt x 54.1672pt.
 Package epstopdf Info: Source file: <abilene_geni_throughput_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:48:58
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 118674 bytes
 (epstopdf)             Output file: <abilene_geni_throughput_e05-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2018-06-11 17:57:37
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9198 bytes
 (epstopdf)             Command: <repstopdf --outfile=abilene_geni_throughput_e0
 5-eps-converted-to.pdf abilene_geni_throughput_e05.eps>
 (epstopdf)             \includegraphics on input line 202.
 Package epstopdf Info: Output file is already uptodate.
-
 <abilene_geni_throughput_e05-eps-converted-to.pdf, id=140, 252.945pt x 163.6112
 5pt>
 File: abilene_geni_throughput_e05-eps-converted-to.pdf Graphic file (type pdf)
- <use abilene_geni_throughput_e05-eps-converted-to.pdf>
-Package pdftex.def Info: abilene_geni_throughput_e05-eps-converted-to.pdf used 
-on input line 202.
+<use abilene_geni_throughput_e05-eps-converted-to.pdf>
+Package pdftex.def Info: abilene_geni_throughput_e05-eps-converted-to.pdf  used
+ on input line 202.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
 Package epstopdf Info: Source file: <newyork_geni_throughput_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:48:58
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 119661 bytes
 (epstopdf)             Output file: <newyork_geni_throughput_e05-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2018-06-11 17:57:38
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9570 bytes
 (epstopdf)             Command: <repstopdf --outfile=newyork_geni_throughput_e0
 5-eps-converted-to.pdf newyork_geni_throughput_e05.eps>
 (epstopdf)             \includegraphics on input line 203.
 Package epstopdf Info: Output file is already uptodate.
-
 <newyork_geni_throughput_e05-eps-converted-to.pdf, id=141, 252.945pt x 163.6112
 5pt>
 File: newyork_geni_throughput_e05-eps-converted-to.pdf Graphic file (type pdf)
- <use newyork_geni_throughput_e05-eps-converted-to.pdf>
-Package pdftex.def Info: newyork_geni_throughput_e05-eps-converted-to.pdf used 
-on input line 203.
+<use newyork_geni_throughput_e05-eps-converted-to.pdf>
+Package pdftex.def Info: newyork_geni_throughput_e05-eps-converted-to.pdf  used
+ on input line 203.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
-
 
 LaTeX Warning: Float too large for page by 9.78384pt on input line 204.
 
 Package epstopdf Info: Source file: <lambda_legend.eps>
-(epstopdf)                    date: 2018-05-27 21:11:54
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 114102 bytes
 (epstopdf)             Output file: <lambda_legend-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-11 17:59:06
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 5676 bytes
 (epstopdf)             Command: <repstopdf --outfile=lambda_legend-eps-converte
 d-to.pdf lambda_legend.eps>
@@ -578,56 +558,53 @@ d-to.pdf lambda_legend.eps>
 Package epstopdf Info: Output file is already uptodate.
 File: lambda_legend-eps-converted-to.pdf Graphic file (type pdf)
 <use lambda_legend-eps-converted-to.pdf>
-Package pdftex.def Info: lambda_legend-eps-converted-to.pdf used on input line 
-208.
+Package pdftex.def Info: lambda_legend-eps-converted-to.pdf  used on input line
+ 208.
 (pdftex.def)             Requested size: 390.0pt x 54.1672pt.
 Package epstopdf Info: Source file: <polska_geni_throughput_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:48:58
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 118678 bytes
 (epstopdf)             Output file: <polska_geni_throughput_e05-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2018-06-11 17:57:38
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9143 bytes
 (epstopdf)             Command: <repstopdf --outfile=polska_geni_throughput_e05
 -eps-converted-to.pdf polska_geni_throughput_e05.eps>
 (epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
-
 <polska_geni_throughput_e05-eps-converted-to.pdf, id=142, 252.945pt x 163.61125
 pt>
 File: polska_geni_throughput_e05-eps-converted-to.pdf Graphic file (type pdf)
- <use polska_geni_throughput_e05-eps-converted-to.pdf>
-Package pdftex.def Info: polska_geni_throughput_e05-eps-converted-to.pdf used o
-n input line 209.
+<use polska_geni_throughput_e05-eps-converted-to.pdf>
+Package pdftex.def Info: polska_geni_throughput_e05-eps-converted-to.pdf  used 
+on input line 209.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
 Package epstopdf Info: Source file: <di-yuan_geni_throughput_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:48:58
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 118679 bytes
 (epstopdf)             Output file: <di-yuan_geni_throughput_e05-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2018-06-11 17:57:38
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9331 bytes
 (epstopdf)             Command: <repstopdf --outfile=di-yuan_geni_throughput_e0
 5-eps-converted-to.pdf di-yuan_geni_throughput_e05.eps>
 (epstopdf)             \includegraphics on input line 210.
 Package epstopdf Info: Output file is already uptodate.
-
 <di-yuan_geni_throughput_e05-eps-converted-to.pdf, id=143, 252.945pt x 163.6112
 5pt>
 File: di-yuan_geni_throughput_e05-eps-converted-to.pdf Graphic file (type pdf)
- <use di-yuan_geni_throughput_e05-eps-converted-to.pdf>
-Package pdftex.def Info: di-yuan_geni_throughput_e05-eps-converted-to.pdf used 
-on input line 210.
+<use di-yuan_geni_throughput_e05-eps-converted-to.pdf>
+Package pdftex.def Info: di-yuan_geni_throughput_e05-eps-converted-to.pdf  used
+ on input line 210.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
-
 
 LaTeX Warning: Float too large for page by 9.78384pt on input line 211.
 
 Package epstopdf Info: Source file: <lambda_legend.eps>
-(epstopdf)                    date: 2018-05-27 21:11:54
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 114102 bytes
 (epstopdf)             Output file: <lambda_legend-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-11 17:59:06
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 5676 bytes
 (epstopdf)             Command: <repstopdf --outfile=lambda_legend-eps-converte
 d-to.pdf lambda_legend.eps>
@@ -635,48 +612,46 @@ d-to.pdf lambda_legend.eps>
 Package epstopdf Info: Output file is already uptodate.
 File: lambda_legend-eps-converted-to.pdf Graphic file (type pdf)
 <use lambda_legend-eps-converted-to.pdf>
-Package pdftex.def Info: lambda_legend-eps-converted-to.pdf used on input line 
-215.
+Package pdftex.def Info: lambda_legend-eps-converted-to.pdf  used on input line
+ 215.
 (pdftex.def)             Requested size: 390.0pt x 54.1672pt.
 Package epstopdf Info: Source file: <nobel-us_geni_throughput_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:48:58
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 118678 bytes
 (epstopdf)             Output file: <nobel-us_geni_throughput_e05-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2018-06-11 17:57:38
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9316 bytes
 (epstopdf)             Command: <repstopdf --outfile=nobel-us_geni_throughput_e
 05-eps-converted-to.pdf nobel-us_geni_throughput_e05.eps>
 (epstopdf)             \includegraphics on input line 216.
 Package epstopdf Info: Output file is already uptodate.
-
 <nobel-us_geni_throughput_e05-eps-converted-to.pdf, id=144, 252.945pt x 163.611
 25pt>
 File: nobel-us_geni_throughput_e05-eps-converted-to.pdf Graphic file (type pdf)
 
- <use nobel-us_geni_throughput_e05-eps-converted-to.pdf>
-Package pdftex.def Info: nobel-us_geni_throughput_e05-eps-converted-to.pdf used
- on input line 216.
+<use nobel-us_geni_throughput_e05-eps-converted-to.pdf>
+Package pdftex.def Info: nobel-us_geni_throughput_e05-eps-converted-to.pdf  use
+d on input line 216.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
 Package epstopdf Info: Source file: <pdh_geni_throughput_e05.eps>
-(epstopdf)                    date: 2018-05-31 18:48:58
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 119608 bytes
 (epstopdf)             Output file: <pdh_geni_throughput_e05-eps-converted-to.p
 df>
-(epstopdf)                    date: 2018-06-11 17:57:39
+(epstopdf)                    date: 2018-06-11 23:48:14
 (epstopdf)                    size: 9260 bytes
 (epstopdf)             Command: <repstopdf --outfile=pdh_geni_throughput_e05-ep
 s-converted-to.pdf pdh_geni_throughput_e05.eps>
 (epstopdf)             \includegraphics on input line 217.
 Package epstopdf Info: Output file is already uptodate.
-
 <pdh_geni_throughput_e05-eps-converted-to.pdf, id=145, 252.945pt x 163.61125pt>
+
 File: pdh_geni_throughput_e05-eps-converted-to.pdf Graphic file (type pdf)
 <use pdh_geni_throughput_e05-eps-converted-to.pdf>
-Package pdftex.def Info: pdh_geni_throughput_e05-eps-converted-to.pdf used on i
-nput line 217.
+Package pdftex.def Info: pdh_geni_throughput_e05-eps-converted-to.pdf  used on 
+input line 217.
 (pdftex.def)             Requested size: 390.0pt x 252.26666pt.
-
 
 LaTeX Warning: Float too large for page by 9.78384pt on input line 218.
 
@@ -694,51 +669,27 @@ geni_throughput_e05-eps-converted-to.pdf>]
 Chapter 7.
 [35
 
-]
-Missing character: There is no √ in font cmr12!
-Missing character: There is no ∂ in font cmr12!
-Missing character: There is no ‚ in font cmti12!
-Missing character: There is no Ä in font cmti12!
-Missing character: There is no ú in font cmti12!
-Missing character: There is no ‚ in font cmti12!
-Missing character: There is no Ä in font cmti12!
-Missing character: There is no ù in font cmti12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-Missing character: There is no √ in font cmr12!
-Missing character: There is no § in font cmr12!
-Missing character: There is no √ in font cmr12!
-Missing character: There is no ≥ in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
- [36
+] [36
 
 ] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 2087 strings out of 493029
- 31326 string characters out of 6136234
- 93654 words of memory out of 5000000
- 5584 multiletter control sequences out of 15000+600000
+ 2147 strings out of 492649
+ 33174 string characters out of 6129622
+ 100332 words of memory out of 5000000
+ 5982 multiletter control sequences out of 15000+600000
  9454 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,8n,23p,1124b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on paper.pdf (37 pages, 1265428 bytes).
+ 41i,8n,25p,1124b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
+2.pfb>
+Output written on paper.pdf (37 pages, 1242407 bytes).
 PDF statistics:
  275 PDF objects out of 1000 (max. 8388607)
  166 compressed objects within 2 object streams
