@@ -1,4 +1,3 @@
-
 \documentclass[a4paper,12pt]{report}
   \usepackage[english]{babel}
   \usepackage{graphicx}
@@ -70,7 +69,7 @@
      \newline
      \null\qquad After finishing in reservation, experimenters could use GENI desktop tool to configure each node manually. Another method is to use the manifest RSpec, manifest RSpec describes the roesources the got. The manifest include the names and IP addresses and login accounts of compute resources. The experimenters could use SSH to login in the resources and configure the nodes.
      \newline
-     \null\qquad When finished setting the nodes including controller, the experimenters use SSH to connect to each node and run the {\bf iPerf} to start the traffic. {\bf iPerf} is a software that could create the traffic in the networks.
+     \null\qquad When finished setting the nodes including controller, the experimenters use SSH to connect to each node and run the {\bf iPerf} to start the traffic. {\bf iPerf} is a software that could create the traffic in the networks \cite{iperf}.
      \newline
      \null\qquad Finally, the experiments could clone the mesaurment datas from each node and view the information they want.
        \begin{figure}
@@ -137,13 +136,106 @@
 	      	\end{figure}
   \chapter{Case study}
   \section{Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks}
-    \qquad In this section, we study the Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks and implement four algorithms in GENI. Because the MPLS is a per-flow routing, the number of flow paths through a node (switch) needs to be bounded due to the limited ternary content addressable memory (TCAM). Therefore, the problem term to be bounded path-degree maximum concurrent flow problem (BPMCF)
+    \qquad In this section, we study the Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks and implement four algorithms in GENI. Because the MPLS is a per-flow routing, the number of flow paths through a node (switch) needs to be bounded due to the limited ternary content addressable memory (TCAM). Therefore, the problem term to be bounded forwarding rule maximum concurrent flow problem (BFRMCF)
     \subsection{Problem definition}
-    \qquad Given a network topology G = (V, E) with link link capacity (bandwidth capacity) 
+    \qquad Given a network topology $G=(V, E)$ with link link capacity (bandwidth capacity) $c_e\in R^+$ associated with each directed link $e\in E$ and node capacity (forwarding table size) $b_v\in Z^+$ associated with each node (SDN-FE) $v\in V$, and given a set of flows $F=\{ 1, 2, ..., |F|\}$. Each flow $f\in F$ is associated with a source-destination pair $ \left( s_f,t_f \right)\subseteq V \times V $ and the transmission demand $d_f \in R^+$. The Bounded Forwarding Rules Maximum Concurrent Flow Problem (BFRMCF) asks for the forwarding paths and the transmission rate on each chosen path such that 1) for each flow $f$, the rate is at least $\lambda d_f$, \newline 2) for each flow $f$, the rate is at most $d_f$ (the demand constraints), \newline 3) for each link $e$, the taotal rate through $e$ are at most $c_e$ (the link capacity constraints), \newline 4) for each node $v$, the number of flow paths going through $v$ does not exceed $b_v$ (the node capacity constraints), and \newline 5) $\lambda$ is maxized. \newline\null
+\qquad Let $P_f$ be the set of possible forwarding paths for flow $f$ in the network, and $P=P_1 \cup P_2 \cup ... \cup P_F$. Moreover, let $c_p$ be the capacity of a path $p \in P_f$, i.e., $c_p = min\{ min_{e:e\in p} \{ c_e \}, d_f\}$. In addition, variable $x\left( p \right)$ deontes the fraction of the transmission rate on path $p$ to $c_p$, and variable $y\left( p \right) = 1$ if and only if $p$ is a chosen forwarding path. The BFRMCF problem is formulated as an integer linear program as below.
+			\begin{figure}
+	          \centering
+	            \includegraphics[width=1.0\textwidth]{it_program.png}
+	      	\end{figure}
+\section{Algorithms of BFRMCF}
+\qquad We reivew three offline algorithms for BFRMCF problem. In \cite{our}, \cite{grag}, \cite{gk}, we implement it on GENI and show the total throughput and the $\lambda$ in rxperiment results.
+\section{Implement method}
+\subsection{ The ryu controller}
+  \qquad In ryu controller we need to parse the packet to get the source of ip, destination of ip and destination of port for pretending as a key. Figure 5.1 is the code in ryu for parsing the packet.
+  \begin{figure}[b]
+	          \caption{The code of parse packet}
+	          \centering
+	            \includegraphics[width=1.0\textwidth]{ryu_controller_parse.png}
+	      	\end{figure}
+\subsection{ OpenFlw version and flow table size}	
+\qquad In BFRMCF problem, because it has path degree constraint, we need to let the Open vSwitch support to 1.3 version and set up the flow limit. Figure 5.2, 5.3 is the code to set up. 
+			\begin{figure}[b]
+	          \caption{Support to OpenFlow 1.3}
+	          \centering
+	            \includegraphics[width=1.0\textwidth]{openflow1_3.png}
+	          \caption{Change flow table size}
+	            \includegraphics[width=1.0\textwidth]{flow_table.png}
+	          \caption{The code of iPerf}
+	          \centering
+	            \includegraphics[width=1.0\textwidth]{iperf.png}
+	      	\end{figure}
+\subsection{iPerf}
+	\qquad For setting a target bandwidth, because TCP couldn't fixed in a target bandwidth, so we selected UDP to transport. In figure 5.4, for server side, we user -p parameter to set up the server in a particular listen port, -u let the server listen for UDP packet.
+	\newline\null\qquad For a client side, -c menas to be a client, -b is to set a target bandwidth. -p is transport to a particular listen port.
   \chapter{Experiment results}
+  \qquad We tested three algorithms which are Garg’s algorithm \cite{grag}, Gushchin’s algorithm \cite{gk} and PD's algorithm \cite{our}.The network instances were obtained from the 6 real-life traces from SNDlib \cite{SNDlib}. Since the capacity of each node is unavailable, we set the switch capacity from the 0.1 number of demands($|K|$) to $1.0|K|$. The following figures show the  minimum fraction and total throughput in different topologys.
+  \begin{figure}[ht]
+    \caption{The impact of the switch capacity on the minimum fraction on GENI.}
+	\centering
+	  \includegraphics[width=1.0\textwidth]{lambda_legend.eps}
+	  \includegraphics[width=1.0\textwidth]{abilene_geni_lambda_e05.eps}
+	  \includegraphics[width=1.0\textwidth]{newyork_geni_lambda_e05.eps}
+  \end{figure}
+    \begin{figure}[ht]
+    \caption{The impact of the switch capacity on the minimum fraction on GENI.}
+	\centering
+	  \includegraphics[width=1.0\textwidth]{lambda_legend.eps}
+	  \includegraphics[width=1.0\textwidth]{polska_geni_lambda_e05.eps}
+	  \includegraphics[width=1.0\textwidth]{di-yuan_geni_lambda_e05.eps}
+  \end{figure}
+  \begin{figure}[ht]
+    \caption{The impact of the switch capacity on the minimum fraction on GENI.}
+	\centering
+	  \includegraphics[width=1.0\textwidth]{lambda_legend.eps}
+	  \includegraphics[width=1.0\textwidth]{nobel-us_geni_lambda_e05.eps}
+	  \includegraphics[width=1.0\textwidth]{pdh_geni_lambda_e05.eps}
+  \end{figure}
+  
+  
+  
+    \begin{figure}[ht]
+    \caption{The impact of the switch capacity on the total throughput on GENI.}
+	\centering
+	  \includegraphics[width=1.0\textwidth]{lambda_legend.eps}
+	  \includegraphics[width=1.0\textwidth]{abilene_geni_throughput_e05.eps}
+	  \includegraphics[width=1.0\textwidth]{newyork_geni_throughput_e05.eps}
+  \end{figure}
+    \begin{figure}[ht]
+    \caption{The impact of the switch capacity on the total throughput on GENI.}
+	\centering
+	  \includegraphics[width=1.0\textwidth]{lambda_legend.eps}
+	  \includegraphics[width=1.0\textwidth]{polska_geni_throughput_e05.eps}
+	  \includegraphics[width=1.0\textwidth]{di-yuan_geni_throughput_e05.eps}
+  \end{figure}
+  \begin{figure}[ht]
+    \caption{The impact of the switch capacity on the total throughput on GENI.}
+	\centering
+	  \includegraphics[width=1.0\textwidth]{lambda_legend.eps}
+	  \includegraphics[width=1.0\textwidth]{nobel-us_geni_throughput_e05.eps}
+	  \includegraphics[width=1.0\textwidth]{pdh_geni_throughput_e05.eps}
+  \end{figure}
   \chapter{Summary}
     \section{conclusion}
     \section{future work}
-  \chapter{References}
+  \begin{thebibliography}{1}
+\bibitem{iperf}
+    iPerf, \emph{https://iperf.fr/}.
+\bibitem{our}
+    Tzu-Wen Chang, Yao-Jen Tang, Ming-Jer Tsai, \emph{Efficient Algorithm for Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks}.
+ 
+\bibitem{grag}
+    N. Garg and J. Könemann. \emph{“Faster and simpler algorithms for multicom-modity flow and other fractional packing problems,”} SIAM Journal on
+Computing, 2007.
+\bibitem{gk}
+	A. Gushchin, A. Walid, and A. Tang, “Enabling service function chaining
+through routing optimization in software defined networks,” in IEEE
+Allerton Conference on Communication, Control, and Computing, 2015.
+\bibitem{SNDlib}
+	S. Orlowski, R. Wessäly, M. Pióro, and A. Tomaszewski, “Sndlib 1.0-
+survivable network design library,” Networks, 2010. [Online]. Available:
+http://sndlib.zib.de
+\end{thebibliography}
   \end{large}
   \end{document}
