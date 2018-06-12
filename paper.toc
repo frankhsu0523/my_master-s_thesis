@@ -1,32 +1,39 @@
-\babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}Introduction}{4}
-\contentsline {chapter}{\numberline {2}General Background Information}{6}
-\contentsline {section}{\numberline {2.1}Software-defined networking}{6}
-\contentsline {section}{\numberline {2.2}OpenFlow}{7}
-\contentsline {subsection}{\numberline {2.2.1}OpenFlow switch components}{8}
-\contentsline {section}{\numberline {2.3}GENI}{8}
-\contentsline {section}{\numberline {2.4}Open vSwitch}{9}
-\contentsline {section}{\numberline {2.5}Ryu controller}{10}
-\contentsline {chapter}{\numberline {3}System model}{11}
-\contentsline {section}{\numberline {3.1}Workflow of GENI}{11}
-\contentsline {section}{\numberline {3.2}Network in GENI}{12}
-\contentsline {section}{\numberline {3.3}Ryu controller}{12}
-\contentsline {chapter}{\numberline {4}Implementation of Routing Algorithm in GENI}{18}
-\contentsline {section}{\numberline {4.1}The reservation of compute resources for customized topology}{18}
-\contentsline {section}{\numberline {4.2}Offline algorithm}{20}
-\contentsline {subsection}{\numberline {4.2.1}create the network graph for the input of routing algorithm}{20}
-\contentsline {subsection}{\numberline {4.2.2}setting up the demands}{21}
-\contentsline {subsection}{\numberline {4.2.3}setting up the controller}{21}
-\contentsline {section}{\numberline {4.3}Online algorithm}{21}
-\contentsline {subsection}{\numberline {4.3.1}ryu controller}{21}
-\contentsline {chapter}{\numberline {5}Case study}{23}
-\contentsline {section}{\numberline {5.1}Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks}{23}
-\contentsline {subsection}{\numberline {5.1.1}Problem definition}{23}
+\select@language {english}
+\contentsline {chapter}{中文摘要}{I}
+\contentsline {chapter}{Abstract}{II}
+\contentsline {chapter}{Contents}{II}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {chapter}{\numberline {2}General Background Information}{3}
+\contentsline {section}{\numberline {2.1}Software-defined networking}{3}
+\contentsline {section}{\numberline {2.2}OpenFlow}{4}
+\contentsline {subsection}{\numberline {2.2.1}OpenFlow switch components}{4}
+\contentsline {section}{\numberline {2.3}GENI}{5}
+\contentsline {section}{\numberline {2.4}Open vSwitch}{6}
+\contentsline {section}{\numberline {2.5}Ryu controller}{6}
+\contentsline {chapter}{\numberline {3}System model}{9}
+\contentsline {section}{\numberline {3.1}Workflow of GENI}{9}
+\contentsline {subsection}{\numberline {3.1.1}Create a slice}{9}
+\contentsline {subsection}{\numberline {3.1.2}Create a topology}{9}
+\contentsline {subsection}{\numberline {3.1.3}Configure switches and controller}{10}
+\contentsline {subsection}{\numberline {3.1.4}Run the experiment and collect the data}{10}
+\contentsline {section}{\numberline {3.2}Network in GENI}{10}
+\contentsline {section}{\numberline {3.3}Ryu controller}{13}
+\contentsline {chapter}{\numberline {4}Implementation of Routing Algorithm in GENI}{16}
+\contentsline {section}{\numberline {4.1}The reservation of compute resources for customized topology}{16}
+\contentsline {section}{\numberline {4.2}Offline algorithm}{19}
+\contentsline {subsection}{\numberline {4.2.1}create the network graph for the input of routing algorithm}{19}
+\contentsline {subsection}{\numberline {4.2.2}setting up the demands}{20}
+\contentsline {subsection}{\numberline {4.2.3}setting up the controller}{20}
+\contentsline {section}{\numberline {4.3}Online algorithm}{20}
+\contentsline {subsection}{\numberline {4.3.1}ryu controller}{20}
+\contentsline {chapter}{\numberline {5}Case study}{22}
+\contentsline {section}{\numberline {5.1}Maximum Concurrent Flow Problem in MPLS-based Software Defined Networks}{22}
+\contentsline {subsection}{\numberline {5.1.1}Problem definition}{22}
 \contentsline {section}{\numberline {5.2}Algorithms of BFRMCF}{25}
 \contentsline {section}{\numberline {5.3}Implement method}{25}
 \contentsline {subsection}{\numberline {5.3.1} The ryu controller}{25}
-\contentsline {subsection}{\numberline {5.3.2} OpenFlw version and flow table size}{26}
-\contentsline {subsection}{\numberline {5.3.3}iPerf}{26}
+\contentsline {subsection}{\numberline {5.3.2} OpenFlw version and flow table size}{25}
+\contentsline {subsection}{\numberline {5.3.3}iPerf}{25}
 \contentsline {chapter}{\numberline {6}Experiment results}{28}
-\contentsline {chapter}{\numberline {7}Summary}{35}
-\contentsline {section}{\numberline {7.1}conclusion}{35}
+\contentsline {chapter}{\numberline {7}Conclusion}{35}
+\contentsline {chapter}{Bibliography}{36}

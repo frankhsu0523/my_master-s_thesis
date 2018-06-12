@@ -1,15 +1,56 @@
 \documentclass[a4paper,12pt]{report}
+  \usepackage{CJKutf8}
   \usepackage[english]{babel}
   \usepackage{graphicx}
+  \usepackage[sf]{titlesec}
+  \topmargin 0cm \oddsidemargin 0.5in \headsep 1.5cm \headheight 0.5cm
+\textheight 21.5cm \textwidth 15.2cm \marginparwidth 0cm
+\marginparsep 0cm
   \linespread{1.5}
-  \title{Implementation and Evaluation of Routing Algorithm in GENI Software-Defined Networking}
-  \author{Wei-Hen Hsu}
-  \date{\today}
+  %\title{Implementation and Evaluation of Routing Algorithm in GENI Software-Defined Networking}
+  %\author{Wei-Hen Hsu}
+  %\date{\today}
   \begin{document}
+  \begin{CJK*}{UTF8}{bkai}
+  
+  \begin{titlepage}
+  \begin{center}
+  {\fontsize{28}{28}國~  立~  清~  華~  大~  學}\\
+
+\vspace{1.5cm}
+\Huge{\underline{碩　士　論　文}}\\
+\vspace{0.8cm}
+%\Large{(草稿)}\\
+\vspace{2.4cm} \Large{在GENI環境裡﹐將路由演算法實做進軟體定義網路裡並且評估其效能
+}\\
+\vspace{0.5cm} \Large{\bf Implementation and Evaluation of Routing Algorithm in GENI with Software-Defined Networking\\}
+\vspace{2cm}
+\parbox[t]{14cm}{
+{\bf 系　　別}：\underline{　資~訊~工~程~學~系　　~~}{\bf 組別}：\underline{　　　~~}\\
+{\bf 學號姓名}：\underline{　105062598　徐~偉~涵（Wei-Hen~Hsu）~~}\\
+{\bf 指導教授}：\underline{　蔡~明~哲　博士~~（Dr.~Ming~Jer~Tsai）}\\
+}
+\vspace{0cm}
+中華民國一百零四年七月\\
+\clearpage
+  \end{center}
+  \end{titlepage}
+
+  \chapter*{中文摘要}
+  \pagenumbering{Roman}
+  \addcontentsline{toc}{chapter}{中文摘要}
+  \qquad 軟體定義網路越來越受到重視, 而許多的路由演算法相繼被提出, 評測演算法的表現能力成了重要的議題. 以實體的交換機搭建出的軟體定義網路環境雖然真實, 但所需的成本極大. 實驗床是另一種搭建軟體定義網路環境的方法, 實驗床大部分是由某些組織或者企業所搭建出來的環境, 它提供給研究者搭建環境時所需要的計算及網路資源, 並且提供界面讓研究者可以在上面操作設定其所需的實驗環境, 因為所使用的資源是跟許多人共享使用的, 所以成本相較於實體交換機少很多, 而所量測出的實驗數據又比依靠軟體模擬可信許多. 
+\newline\null\qquad 因此本論文中, 探討如何在一個GENI實驗床中建立出一個軟體定義網路, 並且我們將路由演算法區分為線下與線上的演算法, 針對這兩種演算法, 我們逐一探討如何將其放入所搭建好的軟體定義網路環境中並且進行測試與收集研究者所需要的測試結果.
+  \clearpage
+  \chapter*{Abstract}
+  \addcontentsline{toc}{chapter}{Abstract}
+  \qquad Software-Defined networking has received more and more attentation recently, lots of routing algorithms have been proposed. For evaluating the performace of a routing algorithm becomes a important issue. Although Using real OpenFlow switch for constructing a software-defined networking is quite real, the cost for building is vrey high. The network testbed is another way for build software-defined networking. The network testbed is usually created by some organizations or enterprises. It offers the compute and network resources for the researchers. Also, it offers a platform for the researchers to operate and build the experimental environment they wnat. Because the compute and network resources are shared by other researchers, the cost is lower compared to building by real machines. Also, the result of the experiment is more persuasive than testing by some simulators. 
   \begin{large}
-  \maketitle{}
+  \addcontentsline{toc}{chapter}{Contents}
   \tableofcontents{}
   \chapter{Introduction}
+  \setcounter{page}{1}
+  \pagenumbering{arabic}
 	    \qquad Software-defined networking (SDN) has received a lot of attention in recent years, 
 	            several routing algorithms have been proposed by researchers. The environment that evaluates a 
 	            routing algorithm is quite importmant.\par
@@ -22,18 +63,23 @@
 	            Environment for Network Innovations (GENI)} SDN testbed. The routing algorithms fall into the following two main categories: (a) online routing algorithm; (b) offline routing algorithm. In each catergory, we describe the process of creating a SDN on GENI and implementing the rouing algorithm on SDN. 
   \chapter{General Background Information}
     \section{Software-defined networking}
-      \qquad According to {\bf ONF(Open Networking Foundation)} definition of software-defined networking, SDN is 
+      \qquad According to {\bf ONF(Open Networking Foundation)} \cite{ONF} definition of software-defined networking, SDN is 
                 an architecture that is dynamic, manageable, cost-effective, and adaptable, making it ideal for the 
                 high-bandwidth, dynamic nature of today’s applications. In traditional network, each network device 
                 usually has its own control plane. The transport of the packet is processed by network device 
                 individually. The SDN decouples the forwarding and control planes, removes the control plane from 
-                network device and implements it in sofware instead. The SDN enables the control plane to beccome 
+                network device and implements it in sofware instead. In Figure 2.1, (a) is the traditional network and (b) is SDN. The SDN enables the control plane to beccome 
                 directly programmable and the underlying infrastructure to be abstracted for applications and network 
                 services. The OpenFlow® protocol is a foundational element for building SDN solutions.
+    \begin{figure}
+          \caption{Traditional network and SDN.}
+          \centering
+            \includegraphics[width=1.0\textwidth]{tra_sdn.png}
+        \end{figure}
     \section{OpenFlow}
       \qquad OpenFlow is a communication protocol between SDN controller and OpenFlow switch that enables the SDN 
                 controller to direct interact with the forwarding plane of network devices such as switches and 
-                routers. Figure 2.1 shows the main components of an OpenFlow switch.
+                routers. Figure 2.2 shows the main components of an OpenFlow switch.
         \begin{figure}[hb]
           \caption{Main components of an OpenFlow switch.}
           \centering
@@ -51,27 +97,29 @@
           \caption{Main components of a flow entry in a flow table}
         \end{table}
       \section{GENI}
-      \qquad GENI provides a virtual laboratory for networking and 		 distributed systems research and education.Researcher could obtain compute resources from locations around the United States. Figure 2.2 show the map of GENI compute and netwrok resouces. GENI allows user to install custom software or even custom operating systems on compute resources. Furthermore, researcher could control how network switches in their experiment handle traffic flows. GENI is sponsored by the U.S. National Science Foundation (NSF). If the researchers' institution belongs to an identity federation, the researchers are able to log in using their usual username and password. If their institution does not belong, they could apply for an account at the NCSA identity Provider.
+      \qquad GENI \cite{GENI} provides a virtual laboratory for networking and 		 distributed systems research and education.Researcher could obtain compute resources from locations around the United States. Figure 2.3 shows the map of GENI compute and netwrok resouces. GENI allows user to install custom software or even custom operating systems on compute resources. Furthermore, researcher could control how network switches in their experiment handle traffic flows. GENI is sponsored by the U.S. National Science Foundation (NSF). If the researchers' institution belongs to an identity federation, the researchers are able to login using their usual username and password. If their institution does not belong, they could apply for an account at the NCSA identity Provider.
       \begin{figure}[h]
           \caption{The map of GENI compute and netwrok resouces.}
           \centering
             \includegraphics[width=1.0\textwidth]{GENI-MAP.jpg}
       \end{figure}
      \section{Open vSwitch}
-     \qquad Open vSwitch is a open source, multi layer virtual switch implemented in software. It can be intergrated with hardware where it can act as as control plane. One example is it can handle OnpenFlow control plane in a hardware silicon. There are three mainly components in Open vSwitch: (a) Control Plane; (b) Kernel Mode; (c) Command line interface. 
+     \qquad Open vSwitch \cite{openvswitch} is a open source, multi layer virtual switch implemented in software. It can be intergrated with hardware where it can act as as control plane. One example is it can handle OnpenFlow control plane in a hardware silicon. There are three mainly components in Open vSwitch: (a) Control Plane; (b) Kernel Mode; (c) Command line interface. 
      \section{Ryu controller}
      \qquad Ryu is a component-based SDN framework. Ryu is fully written in Python and provides software components with well defined API that make it easy for developers to create new management and control applications. 
      \chapter{System model}
      \section{Workflow of GENI}
-     \qquad Figure 3.1 shows the workflow of GENI. In the beginning, the GENI experimenters need to creat a slice. A GENI slice is: (a) The unit of isolation for experiments. Only experimenters who are members of a slice can make changes to experiments in that slice; (b) A container for resources used in an experiment.
+     \qquad Figure 3.1 shows the workflow of GENI.
+     \subsection{Create a slice}
+     \qquad In the beginning, the GENI experimenters need to creat a slice. A GENI slice is: (a) The unit of isolation for experiments. Only experimenters who are members of a slice can make changes to experiments in that slice; (b) A container for resources used in an experiment.
+     \subsection{Create a topology}
+     \qquad For creating a specific topology, there are three methods to achieve that. Resouece Specification (RSpec) is a XML document in a prescribed format. Experimenters sned to  aggregates a request RSpec that describe the rosources they want.
+     \subsection{Configure switches and controller}
+     \qquad After finishing in reservation, experimenters could use GENI desktop tool to configure each node manually. Another method is to use the manifest RSpec, manifest RSpec describes the roesources the got. The manifest include the names and IP addresses and login accounts of compute resources. The experimenters could use SSH to login in the resources and configure the nodes.
+     \subsection{Run the experiment and collect the data}
+     \qquad When finished setting the nodes including controller, the experimenters use SSH to connect to each node and run the {\bf iPerf} to start the traffic. {\bf iPerf}  \cite{iperf} is a software that could create the traffic in the networks.
      \newline
-     \null\qquad For creating a specific topology, there are three methods to achieve that. Resouece Specification (RSpec) is a XML document in a prescribed format. Experimenters sned to  aggregates a request RSpec that describe the rosources they want.\
-     \newline
-     \null\qquad After finishing in reservation, experimenters could use GENI desktop tool to configure each node manually. Another method is to use the manifest RSpec, manifest RSpec describes the roesources the got. The manifest include the names and IP addresses and login accounts of compute resources. The experimenters could use SSH to login in the resources and configure the nodes.
-     \newline
-     \null\qquad When finished setting the nodes including controller, the experimenters use SSH to connect to each node and run the {\bf iPerf} to start the traffic. {\bf iPerf} is a software that could create the traffic in the networks \cite{iperf}.
-     \newline
-     \null\qquad Finally, the experiments could clone the mesaurment datas from each node and view the information they want.
+     \null\qquad Finally, the experiments could clone the mesaurment data from each node and view the information they want.
        \begin{figure}
           \caption{The workflow of GENI.}
           \centering
@@ -108,6 +156,9 @@
 	            \includegraphics[width=1.0\textwidth]{geni_manual.png}
 	          \caption{(b) Choose existing topology.}
 	            \includegraphics[width=1.0\textwidth]{choose_existing.png}
+	      	\end{figure}
+	      	\begin{figure}	         
+	          \centering
 	          \caption{(c) Import Resouce spectification (Rspec) documents.}
 	            \includegraphics[width=1.0\textwidth]{rspec_format.png}
 	      	\end{figure}
@@ -216,10 +267,18 @@
 	  \includegraphics[width=1.0\textwidth]{nobel-us_geni_throughput_e05.eps}
 	  \includegraphics[width=1.0\textwidth]{pdh_geni_throughput_e05.eps}
   \end{figure}
-  \chapter{Summary}
-    \section{conclusion}
+  \chapter{Conclusion}
     \qquad For implementing a routing algorithm of SDN, GENI is a persuasive environment for experiment compared to simulator like NS-2, mininet, ... . In this thesis, we divided the algorithms into online algorithm and offline algorithm. For each part, we gave a full description about how to implement it in GENI.  Reader could base on this thesis to get a faster way for building their experiment. 
+ \cleardoublepage
   \begin{thebibliography}{1}
+%\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography} 
+\bibitem{ONF}
+    Open-Network-Foundation, https://www.opennetworking.org/.
+\bibitem{GENI}
+    GENI, http://www.geni.net/.
+\bibitem{openvswitch}
+    Open vSwitch, https://www.openvswitch.org/.
 \bibitem{iperf}
     iPerf, \emph{https://iperf.fr/}.
 \bibitem{our}
@@ -238,4 +297,5 @@ survivable network design library,” Networks, 2010. [Online]. Available:
 http://sndlib.zib.de
 \end{thebibliography}
   \end{large}
+  \end{CJK*}
   \end{document}
